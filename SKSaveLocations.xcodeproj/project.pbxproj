@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		0A45B6E12B13825000C82BEB /* SKSaveLocationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */; };
-		0A45B6E32B13825000C82BEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45B6E22B13825000C82BEB /* ContentView.swift */; };
 		0A45B6E52B13825200C82BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E42B13825200C82BEB /* Assets.xcassets */; };
 		0A45B6E82B13825200C82BEB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */; };
 		0AA823A32B1B601F004D0913 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AA823A52B1B601F004D0913 /* Localizable.strings */; };
+		0AB0FFD02B1B926900629D8A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0FFCF2B1B926900629D8A /* RoundedButton.swift */; };
+		0AB0FFD42B1B9E5000629D8A /* LoginLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0FFD32B1B9E5000629D8A /* LoginLogoView.swift */; };
+		0AB0FFD62B1BA03900629D8A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0FFD52B1BA03900629D8A /* RegistrationView.swift */; };
+		0AB0FFD82B1BBF3B00629D8A /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0FFD72B1BBF3B00629D8A /* ProfileImageView.swift */; };
+		0AB0FFDA2B1BC45500629D8A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0FFD92B1BC45500629D8A /* ImagePicker.swift */; };
+		0AE476EA2B1B6D9D0091DB03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE476E92B1B6D9D0091DB03 /* LoginView.swift */; };
+		0AE476EC2B1B6FDF0091DB03 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE476EB2B1B6FDF0091DB03 /* InputTextView.swift */; };
+		0AE476EF2B1B7C6C0091DB03 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE476EE2B1B7C6C0091DB03 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A45B6DD2B13825000C82BEB /* SKSaveLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKSaveLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSaveLocationsApp.swift; sourceTree = "<group>"; };
-		0A45B6E22B13825000C82BEB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A45B6E42B13825200C82BEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0AA823A42B1B601F004D0913 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0AA823A62B1B6025004D0913 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0AB0FFCF2B1B926900629D8A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		0AB0FFD32B1B9E5000629D8A /* LoginLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoView.swift; sourceTree = "<group>"; };
+		0AB0FFD52B1BA03900629D8A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		0AB0FFD72B1BBF3B00629D8A /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		0AB0FFD92B1BC45500629D8A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		0AE476E92B1B6D9D0091DB03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0AE476EB2B1B6FDF0091DB03 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
+		0AE476EE2B1B7C6C0091DB03 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +68,12 @@
 		0A45B6DF2B13825000C82BEB /* SKSaveLocations */ = {
 			isa = PBXGroup;
 			children = (
+				0AB0FFDB2B1BEB2800629D8A /* Helpers */,
+				0AE476ED2B1B73160091DB03 /* Views */,
 				0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */,
-				0A45B6E22B13825000C82BEB /* ContentView.swift */,
 				0AA823A52B1B601F004D0913 /* Localizable.strings */,
 				0A45B6E42B13825200C82BEB /* Assets.xcassets */,
+				0AE476EE2B1B7C6C0091DB03 /* Colors.xcassets */,
 				0A45B6E62B13825200C82BEB /* Preview Content */,
 			);
 			path = SKSaveLocations;
@@ -69,6 +85,43 @@
 				0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0AB0FFD12B1B971700629D8A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0AE476EB2B1B6FDF0091DB03 /* InputTextView.swift */,
+				0AB0FFCF2B1B926900629D8A /* RoundedButton.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0AB0FFD22B1B9E2700629D8A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0AB0FFD32B1B9E5000629D8A /* LoginLogoView.swift */,
+				0AE476E92B1B6D9D0091DB03 /* LoginView.swift */,
+				0AB0FFD52B1BA03900629D8A /* RegistrationView.swift */,
+				0AB0FFD72B1BBF3B00629D8A /* ProfileImageView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0AB0FFDB2B1BEB2800629D8A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0AB0FFD92B1BC45500629D8A /* ImagePicker.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0AE476ED2B1B73160091DB03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AB0FFD22B1B9E2700629D8A /* Login */,
+				0AB0FFD12B1B971700629D8A /* Common */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A45B6E82B13825200C82BEB /* Preview Assets.xcassets in Resources */,
+				0AE476EF2B1B7C6C0091DB03 /* Colors.xcassets in Resources */,
 				0AA823A32B1B601F004D0913 /* Localizable.strings in Resources */,
 				0A45B6E52B13825200C82BEB /* Assets.xcassets in Resources */,
 			);
@@ -143,7 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A45B6E32B13825000C82BEB /* ContentView.swift in Sources */,
+				0AE476EA2B1B6D9D0091DB03 /* LoginView.swift in Sources */,
+				0AB0FFD82B1BBF3B00629D8A /* ProfileImageView.swift in Sources */,
+				0AB0FFD42B1B9E5000629D8A /* LoginLogoView.swift in Sources */,
+				0AB0FFD02B1B926900629D8A /* RoundedButton.swift in Sources */,
+				0AB0FFD62B1BA03900629D8A /* RegistrationView.swift in Sources */,
+				0AB0FFDA2B1BC45500629D8A /* ImagePicker.swift in Sources */,
+				0AE476EC2B1B6FDF0091DB03 /* InputTextView.swift in Sources */,
 				0A45B6E12B13825000C82BEB /* SKSaveLocationsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +353,8 @@
 				DEVELOPMENT_TEAM = 8Z64NDKFZY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need use camera for taken photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need acces to photo library for getting photo for profile";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -322,6 +384,8 @@
 				DEVELOPMENT_TEAM = 8Z64NDKFZY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need use camera for taken photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need acces to photo library for getting photo for profile";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

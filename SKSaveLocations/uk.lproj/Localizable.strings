@@ -5,4 +5,15 @@
   Created by Serhii Kalinichenko on 02.12.2023.
   
 */
-"hello" = "Привіт";
+"back" = "Повернутися";
+"logIn" = "Увійти";
+"signIn" = "Зареєструватися";
+"email" = "Електронна пошта";
+"emailPlaceholder" = "Введіть Вашу електронну пошту";
+"name" = "Ім'я";
+"namePlaceholder" = "Введіть ПІБ";
+"password" = "Пароль";
+"passwordPlaceholder" = "Введіть пароль";
+"confirmPassword" = "Підтвердження паролю";
+"confirmPasswordPlaceholder" = "Підтвердіть пароль";
+"login.dontHaveAccount" = "Ще нема рахунку";

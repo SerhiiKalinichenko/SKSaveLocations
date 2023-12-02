@@ -5,4 +5,15 @@
   Created by Serhii Kalinichenko on 02.12.2023.
   
 */
-"hello" = "Hello";
+"back" = "Back";
+"logIn" = "Log In";
+"signIn" = "Sign In";
+"email" = "Email";
+"emailPlaceholder" = "Enter your Email";
+"name" = "Name";
+"namePlaceholder" = "Enter your name";
+"password" = "Password";
+"passwordPlaceholder" = "Enter your password";
+"confirmPassword" = "Confirm Password";
+"confirmPasswordPlaceholder" = "Enter password one more time";
+"login.dontHaveAccount" = "Don't have an account";
