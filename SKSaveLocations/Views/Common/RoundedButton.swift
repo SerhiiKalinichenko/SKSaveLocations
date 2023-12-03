@@ -9,7 +9,9 @@ import SwiftUI
 
 struct RoundedButton: View {
     let label: LocalizedStringKey
-    let icon: Image? = nil
+    var icon: Image? = nil
+    var buttonColor = Color.mainBlue
+    var captionColor = Color.white
     let action: () -> Void
     
     var body: some View {
@@ -19,14 +21,15 @@ struct RoundedButton: View {
             HStack(spacing: 5) {
                 if let icon {
                     icon
+                        .foregroundStyle(captionColor)
                 }
                 Text(label)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(captionColor)
                     .font(.system(size: 20))
             }
             .frame(maxWidth: .infinity, maxHeight: 50)
         }
-        .background(.mainBlue)
+        .background(buttonColor)
         .cornerRadius(12)
     }
 }

@@ -8,6 +8,7 @@
 "back" = "Повернутися";
 "logIn" = "Увійти";
 "signIn" = "Зареєструватися";
+"logOut" = "Вийти";
 "email" = "Електронна пошта";
 "emailPlaceholder" = "Введіть Вашу електронну пошту";
 "name" = "Ім'я";
@@ -17,3 +18,4 @@
 "confirmPassword" = "Підтвердження паролю";
 "confirmPasswordPlaceholder" = "Підтвердіть пароль";
 "login.dontHaveAccount" = "Ще нема рахунку";
+"deleteAccount" = "Видалити рахунок";

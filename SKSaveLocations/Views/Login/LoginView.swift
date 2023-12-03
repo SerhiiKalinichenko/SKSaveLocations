@@ -11,6 +11,7 @@ import UIKit
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -26,8 +27,13 @@ struct LoginView: View {
                 .padding(.horizontal)
                 .padding(.top, 40)
                 RoundedButton(label: "logIn") {
+                    Task {
+                        try await viewModel.logIn(email: email, password: password)
+                    }
                     debugPrint("Button tapped")
                 }
+                .disabled(!dataIsValidated)
+                .opacity(dataIsValidated ? 1 : 0.6)
                 .padding(.horizontal, 16)
                 .padding(.top, 20)
                 Spacer()
@@ -48,6 +54,21 @@ struct LoginView: View {
     }
 }
 
-#Preview {
-    LoginView()
+extension LoginView: RequiredValidationProtocol {
+    var dataIsValidated: Bool {
+        return email.count > 5 && password.count > 5
+    }
 }
+
+//#Preview {
+//    LoginView()
+//}
+
+//struct ContentView_Previews: PreviewProvider {
+//    static let mockVieModel = AuthViewModel()
+//
+//    static var previews: some View {
+//        LoginView()
+//            .environmentObject(mockVieModel)
+//    }
+//}

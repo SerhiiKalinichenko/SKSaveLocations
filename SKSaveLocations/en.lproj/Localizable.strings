@@ -8,6 +8,7 @@
 "back" = "Back";
 "logIn" = "Log In";
 "signIn" = "Sign In";
+"logOut" = "Log Out";
 "email" = "Email";
 "emailPlaceholder" = "Enter your Email";
 "name" = "Name";
@@ -17,3 +18,4 @@
 "confirmPassword" = "Confirm Password";
 "confirmPasswordPlaceholder" = "Enter password one more time";
 "login.dontHaveAccount" = "Don't have an account";
+"deleteAccount" = "Delete Account";

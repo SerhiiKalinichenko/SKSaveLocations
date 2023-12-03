@@ -37,6 +37,7 @@ struct MainRegistrationView: View {
     @State private var confirmPassword = ""
     @State private var showImagePicker = false
     @State private var addedImage: UIImage?
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         VStack {
@@ -58,7 +59,9 @@ struct MainRegistrationView: View {
             .padding(.horizontal)
             .padding(.top, 10)
             RoundedButton(label: "signIn") {
-                debugPrint("SignIn Button tapped")
+                Task {
+                    try await viewModel.createUser(email: email, password: password, name: name)
+                }
             }
             .padding(.horizontal, 16)
             .padding(.top, 20)
