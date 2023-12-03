@@ -16,10 +16,20 @@ struct InputTextView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(title)
-                .font(.system(size: 25))
-                .fontWeight(.semibold)
-                .foregroundStyle(.mainText)
+            HStack {
+                Text(title)
+                    .font(.system(size: 25))
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.mainBlue)
+                if isSecureText {
+                    Button {
+                        hideText.toggle()
+                    } label: {
+                        Image(systemName: hideText ? "eye" : "eye.slash")
+                            .foregroundStyle(.mainBlue)
+                    }
+                }
+            }
             HStack {
                 if isSecureText && hideText {
                     SecureField(placeholder, text: $text)
@@ -32,14 +42,16 @@ struct InputTextView: View {
                         .foregroundStyle(.black)
                         .frame(height: 35)
                 }
-                if isSecureText {
-                    Spacer()
-                    Button {
-                        hideText.toggle()
-                    } label: {
-                        Image(systemName: hideText ? "eye" : "eye.slash")
-                            .foregroundStyle(.mainText)
-                    }
+                if !text.isEmpty {
+                    Button(
+                        action: {
+                            text = ""
+                        },
+                        label: {
+                            Image(systemName: "xmark.circle")
+                                .foregroundStyle(.gray)
+                        }
+                    )
                 }
             }
             Divider()

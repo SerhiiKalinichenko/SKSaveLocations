@@ -26,7 +26,7 @@ struct RoundedButton: View {
             }
             .frame(maxWidth: .infinity, maxHeight: 50)
         }
-        .background(.mainText)
+        .background(.mainBlue)
         .cornerRadius(12)
     }
 }

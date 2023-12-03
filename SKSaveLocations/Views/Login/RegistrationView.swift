@@ -19,7 +19,7 @@ struct RegistrationView: View {
                 HStack(spacing: 3) {
                     Text("👈🏾")
                     Text("back")
-                        .foregroundStyle(Color.mainText)
+                        .foregroundStyle(Color.mainBlue)
                         .font(.system(size: 12))
                 }
             }

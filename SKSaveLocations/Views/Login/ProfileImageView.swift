@@ -24,7 +24,7 @@ struct ProfileImageView: View {
                 .scaledToFill()
                 .frame(width: 25, height: 25)
                 .foregroundStyle(.white)
-                .background(.mainText)
+                .background(.mainBlue)
                 .clipShape(Circle())
         }
     }

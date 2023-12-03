@@ -40,7 +40,7 @@ struct LoginView: View {
                         Text("signIn")
                             .fontWeight(.semibold)
                     }
-                    .foregroundStyle(.mainText)
+                    .foregroundStyle(.mainBlue)
                     .font(.system(size: 17))
                 }
             }
