@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @StateObject var viewModel: ProfileViewModel
+    @State private var image: Image?
+    @State private var showImagePicker = false
+    @State private var addedImage: UIImage?
     
     var body: some View {
         if let user = viewModel.user {
             List {
                 Section {
                     HStack {
-                        Text(user.avatarText)
-                            .font(.system(size: 25))
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.mainBlue)
-                            .frame(width: 70, height: 70)
-                            .background(.gray)
-                            .clipShape(Circle())
+                        ProfileImageView(image: image, name: user.name)
+                            .onTapGesture {
+                                showImagePicker = true
+                            }
                         VStack(alignment: .leading, spacing: 5) {
                             Text(user.name)
                                 .font(.system(size: 23))
@@ -34,25 +34,35 @@ struct ProfileView: View {
                 }
                 Section("Account") {
                     RoundedButton(label: "logOut", icon: Image(systemName: "figure.walk.arrival")) {
-                         viewModel.logOut()
+                        viewModel.logOut()
                     }
                     .frame(height: 44)
                     .listRowSeparator(.hidden)
                     .shadow(radius: 4)
                     RoundedButton(label: "deleteAccount", icon: Image(systemName: "folder.badge.minus"), buttonColor: .red) {
-                         viewModel.deleteAccount()
+                        viewModel.deleteAccount()
                     }
                     .frame(height: 44)
                     .shadow(radius: 4)
                 }
-                
             }
-            
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(image: $addedImage)
+            }
+            .onChange(of: addedImage) {
+                loadImage()
+            }
         }
-
+    }
+        
+    func loadImage() {
+        guard let addedImage else {
+            return
+        }
+        image = Image(uiImage: addedImage)
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(viewModel: ProfileViewModel(authService: AuthServiceMock()))
 }

@@ -9,10 +9,11 @@ import SwiftUI
 
 struct RegistrationView: View {
     @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel: RegistrationViewModel
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            MainRegistrationView()
+            MainRegistrationView(viewModel: viewModel)
             Button {
                dismiss()
             } label: {
@@ -30,41 +31,65 @@ struct RegistrationView: View {
 }
 
 struct MainRegistrationView: View {
+    @StateObject var viewModel: RegistrationViewModel
     @State private var image: Image?
-    @State private var name = ""
-    @State private var email = ""
-    @State private var password = ""
-    @State private var confirmPassword = ""
     @State private var showImagePicker = false
     @State private var addedImage: UIImage?
-    @EnvironmentObject var viewModel: AuthViewModel
-    
+    private var nameBinding: Binding<String> {
+        Binding {
+            viewModel.name
+        } set: {
+            viewModel.nameChanged($0)
+        }
+    }
+    private var emailBinding: Binding<String> {
+        Binding {
+            viewModel.email
+        } set: {
+            viewModel.emailChanged($0)
+        }
+    }
+    private var passwordBinding: Binding<String> {
+        Binding {
+            viewModel.password
+        } set: {
+            viewModel.passwordChanged($0)
+        }
+    }
+    private var confirmPasswordBinding: Binding<String> {
+        Binding {
+            viewModel.confirmPassword
+        } set: {
+            viewModel.confirmPasswordChanged($0)
+        }
+    }
+
     var body: some View {
         VStack {
             LoginLogoView()
                 .opacity(0.7)
                 .padding(.top, 10)
-            ProfileImageView(image: image)
+            ProfileImageView(image: image, name: nameBinding.wrappedValue)
                 .padding(.top, -20)
                 .onTapGesture {
                     showImagePicker = true
                 }
             VStack {
-                InputTextView(text: $name, title: "name", placeholder: "namePlaceholder")
-                InputTextView(text: $email, title: "email", placeholder: "emailPlaceholder")
+                InputTextView(text: nameBinding, title: "name", placeholder: "namePlaceholder")
+                InputTextView(text: emailBinding, title: "email", placeholder: "emailPlaceholder")
                     .autocapitalization(.none)
-                InputTextView(text: $password, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
-                InputTextView(text: $confirmPassword, title: "confirmPassword", placeholder: "confirmPasswordPlaceholder", isSecureText: true)
+                InputTextView(text: passwordBinding, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
+                InputTextView(text: confirmPasswordBinding, title: "confirmPassword", placeholder: "confirmPasswordPlaceholder", isSecureText: true)
             }
             .padding(.horizontal)
             .padding(.top, 10)
             RoundedButton(label: "signIn") {
-                Task {
-                    try await viewModel.createUser(email: email, password: password, name: name)
-                }
+                viewModel.createUser()
             }
             .padding(.horizontal, 16)
             .padding(.top, 20)
+            .disabled(!viewModel.dataIsValidated)
+            .opacity(viewModel.dataIsValidated ? 1 : 0.6)
             Spacer()
         }
         .sheet(isPresented: $showImagePicker) {
@@ -84,5 +109,5 @@ struct MainRegistrationView: View {
 }
 
 #Preview {
-    RegistrationView()
+    RegistrationView(viewModel: RegistrationViewModel(authService: AuthServiceMock()))
 }

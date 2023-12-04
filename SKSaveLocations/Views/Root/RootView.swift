@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct RootView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var authService: AuthService
     
     var body: some View {
         Group {
-            if viewModel.sessionUser != nil {
-                ProfileView()
+            if authService.sessionUser == nil {
+                let viewModel = LoginViewModel(authService: authService)
+                LoginView(viewModel: viewModel)
             } else {
-                LoginView()
+                let viewModel = ProfileViewModel(authService: authService)
+                ProfileView(viewModel: viewModel)
             }
         }
     }

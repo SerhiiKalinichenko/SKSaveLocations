@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct SKSaveLocationsApp: App {
-    @StateObject private var viewModel = AuthViewModel()
+    @StateObject private var authService = AuthService()
     
     init() {
         FirebaseApp.configure()
@@ -19,7 +19,7 @@ struct SKSaveLocationsApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(viewModel)
+                .environmentObject(authService)
         }
     }
 }

@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A2E9E132B1CFDBC001445EE /* RequiredValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E9E122B1CFDBC001445EE /* RequiredValidationProtocol.swift */; };
 		0A45B6E12B13825000C82BEB /* SKSaveLocationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */; };
 		0A45B6E52B13825200C82BEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E42B13825200C82BEB /* Images.xcassets */; };
 		0A45B6E82B13825200C82BEB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */; };
 		0A5269D62B1C73E700A59851 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5269D52B1C73E700A59851 /* Launch Screen.storyboard */; };
+		0A896D512B1E163700A06FE1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D502B1E163700A06FE1 /* ProfileViewModel.swift */; };
+		0A896D532B1E19EF00A06FE1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D522B1E19EF00A06FE1 /* LoginViewModel.swift */; };
+		0A896D552B1E1C3200A06FE1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D542B1E1C3200A06FE1 /* RegistrationViewModel.swift */; };
+		0A896D582B1E253800A06FE1 /* AuthUserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D572B1E253800A06FE1 /* AuthUserMock.swift */; };
+		0A896D5B2B1E292200A06FE1 /* AuthServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D5A2B1E292200A06FE1 /* AuthServiceMock.swift */; };
+		0A896D5E2B1E394E00A06FE1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D5D2B1E394E00A06FE1 /* String.swift */; };
 		0AA823A32B1B601F004D0913 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0AA823A52B1B601F004D0913 /* Localizable.strings */; };
 		0AB0FFD02B1B926900629D8A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0FFCF2B1B926900629D8A /* RoundedButton.swift */; };
 		0AB0FFD42B1B9E5000629D8A /* LoginLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0FFD32B1B9E5000629D8A /* LoginLogoView.swift */; };
@@ -37,7 +42,7 @@
 		0ABFD6462B1C7BAD00EEBC4A /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 0ABFD6452B1C7BAD00EEBC4A /* FirebaseMLModelDownloader */; };
 		0ABFD6482B1C7BAD00EEBC4A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0ABFD6472B1C7BAD00EEBC4A /* FirebaseStorage */; };
 		0ABFD64A2B1C7BAD00EEBC4A /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0ABFD6492B1C7BAD00EEBC4A /* FirebaseStorageCombine-Community */; };
-		0ABFD64D2B1C7CD200EEBC4A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD64C2B1C7CD200EEBC4A /* AuthViewModel.swift */; };
+		0ABFD64D2B1C7CD200EEBC4A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD64C2B1C7CD200EEBC4A /* AuthService.swift */; };
 		0ABFD6502B1C82D500EEBC4A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD64F2B1C82D500EEBC4A /* RootView.swift */; };
 		0ABFD6532B1C862200EEBC4A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD6522B1C862200EEBC4A /* User.swift */; };
 		0ABFD65B2B1C8FF000EEBC4A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 0ABFD65A2B1C8FF000EEBC4A /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -64,12 +69,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A2E9E122B1CFDBC001445EE /* RequiredValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredValidationProtocol.swift; sourceTree = "<group>"; };
 		0A45B6DD2B13825000C82BEB /* SKSaveLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKSaveLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSaveLocationsApp.swift; sourceTree = "<group>"; };
 		0A45B6E42B13825200C82BEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A5269D52B1C73E700A59851 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0A896D502B1E163700A06FE1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		0A896D522B1E19EF00A06FE1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0A896D542B1E1C3200A06FE1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		0A896D572B1E253800A06FE1 /* AuthUserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserMock.swift; sourceTree = "<group>"; };
+		0A896D5A2B1E292200A06FE1 /* AuthServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceMock.swift; sourceTree = "<group>"; };
+		0A896D5D2B1E394E00A06FE1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0AA823A42B1B601F004D0913 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0AA823A62B1B6025004D0913 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0AB0FFCF2B1B926900629D8A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -78,7 +88,7 @@
 		0AB0FFD72B1BBF3B00629D8A /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		0AB0FFD92B1BC45500629D8A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		0ABFD61A2B1C794C00EEBC4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0ABFD64C2B1C7CD200EEBC4A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		0ABFD64C2B1C7CD200EEBC4A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		0ABFD64F2B1C82D500EEBC4A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0ABFD6522B1C862200EEBC4A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0AE476E92B1B6D9D0091DB03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -152,16 +162,16 @@
 		0A45B6DF2B13825000C82BEB /* SKSaveLocations */ = {
 			isa = PBXGroup;
 			children = (
+				0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */,
+				0A896D5C2B1E393100A06FE1 /* Extensions */,
 				0ABFD6512B1C860F00EEBC4A /* Models */,
-				0ABFD64B2B1C7CB400EEBC4A /* ViewModels */,
 				0AB0FFDB2B1BEB2800629D8A /* Helpers */,
 				0AE476ED2B1B73160091DB03 /* Views */,
-				0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */,
+				0ABFD64B2B1C7CB400EEBC4A /* Services */,
 				0AA823A52B1B601F004D0913 /* Localizable.strings */,
 				0A45B6E42B13825200C82BEB /* Images.xcassets */,
 				0AE476EE2B1B7C6C0091DB03 /* Colors.xcassets */,
 				0ABFD61A2B1C794C00EEBC4A /* GoogleService-Info.plist */,
-				0A5269D52B1C73E700A59851 /* Launch Screen.storyboard */,
 				0A45B6E62B13825200C82BEB /* Preview Content */,
 			);
 			path = SKSaveLocations;
@@ -173,6 +183,39 @@
 				0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0A896D4E2B1E155400A06FE1 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				0AB0FFD52B1BA03900629D8A /* RegistrationView.swift */,
+				0A896D542B1E1C3200A06FE1 /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		0A896D562B1E251C00A06FE1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0A896D572B1E253800A06FE1 /* AuthUserMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		0A896D592B1E290C00A06FE1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0A896D5A2B1E292200A06FE1 /* AuthServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		0A896D5C2B1E393100A06FE1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A896D5D2B1E394E00A06FE1 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0AB0FFD12B1B971700629D8A /* Common */ = {
@@ -189,8 +232,7 @@
 			children = (
 				0AB0FFD32B1B9E5000629D8A /* LoginLogoView.swift */,
 				0AE476E92B1B6D9D0091DB03 /* LoginView.swift */,
-				0AB0FFD52B1BA03900629D8A /* RegistrationView.swift */,
-				0AB0FFD72B1BBF3B00629D8A /* ProfileImageView.swift */,
+				0A896D522B1E19EF00A06FE1 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -203,12 +245,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		0ABFD64B2B1C7CB400EEBC4A /* ViewModels */ = {
+		0ABFD64B2B1C7CB400EEBC4A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0ABFD64C2B1C7CD200EEBC4A /* AuthViewModel.swift */,
+				0A896D592B1E290C00A06FE1 /* Mocks */,
+				0ABFD64C2B1C7CD200EEBC4A /* AuthService.swift */,
 			);
-			path = ViewModels;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		0ABFD64E2B1C82B100EEBC4A /* Root */ = {
@@ -222,6 +265,7 @@
 		0ABFD6512B1C860F00EEBC4A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A896D562B1E251C00A06FE1 /* Mocks */,
 				0ABFD6522B1C862200EEBC4A /* User.swift */,
 			);
 			path = Models;
@@ -230,11 +274,12 @@
 		0AE476ED2B1B73160091DB03 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A5269D52B1C73E700A59851 /* Launch Screen.storyboard */,
 				0AB0FFD12B1B971700629D8A /* Common */,
 				0AB0FFD22B1B9E2700629D8A /* Login */,
 				0AFEE9962B1CBEFD00F772D9 /* Profile */,
+				0A896D4E2B1E155400A06FE1 /* Registration */,
 				0ABFD64E2B1C82B100EEBC4A /* Root */,
-				0A2E9E122B1CFDBC001445EE /* RequiredValidationProtocol.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,7 +287,9 @@
 		0AFEE9962B1CBEFD00F772D9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				0AB0FFD72B1BBF3B00629D8A /* ProfileImageView.swift */,
 				0AFEE9972B1CBF4900F772D9 /* ProfileView.swift */,
+				0A896D502B1E163700A06FE1 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -363,17 +410,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE476EA2B1B6D9D0091DB03 /* LoginView.swift in Sources */,
+				0A896D5B2B1E292200A06FE1 /* AuthServiceMock.swift in Sources */,
 				0AB0FFD82B1BBF3B00629D8A /* ProfileImageView.swift in Sources */,
 				0AB0FFD42B1B9E5000629D8A /* LoginLogoView.swift in Sources */,
 				0AB0FFD02B1B926900629D8A /* RoundedButton.swift in Sources */,
 				0AFEE9982B1CBF4900F772D9 /* ProfileView.swift in Sources */,
 				0ABFD6502B1C82D500EEBC4A /* RootView.swift in Sources */,
+				0A896D512B1E163700A06FE1 /* ProfileViewModel.swift in Sources */,
 				0AB0FFD62B1BA03900629D8A /* RegistrationView.swift in Sources */,
+				0A896D582B1E253800A06FE1 /* AuthUserMock.swift in Sources */,
+				0A896D532B1E19EF00A06FE1 /* LoginViewModel.swift in Sources */,
 				0AB0FFDA2B1BC45500629D8A /* ImagePicker.swift in Sources */,
+				0A896D5E2B1E394E00A06FE1 /* String.swift in Sources */,
+				0A896D552B1E1C3200A06FE1 /* RegistrationViewModel.swift in Sources */,
 				0AE476EC2B1B6FDF0091DB03 /* InputTextView.swift in Sources */,
-				0A2E9E132B1CFDBC001445EE /* RequiredValidationProtocol.swift in Sources */,
 				0A45B6E12B13825000C82BEB /* SKSaveLocationsApp.swift in Sources */,
-				0ABFD64D2B1C7CD200EEBC4A /* AuthViewModel.swift in Sources */,
+				0ABFD64D2B1C7CD200EEBC4A /* AuthService.swift in Sources */,
 				0ABFD6532B1C862200EEBC4A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

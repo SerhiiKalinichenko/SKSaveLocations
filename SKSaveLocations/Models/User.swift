@@ -15,11 +15,6 @@ struct User: Codable, Identifiable {
 
 extension User {
     var avatarText: String {
-        let formatter = PersonNameComponentsFormatter()
-        if let components = formatter.personNameComponents(from: name) {
-            formatter.style = .abbreviated
-            return formatter.string(from: components)
-        }
-        return ""
+        name.initials
     }
 }

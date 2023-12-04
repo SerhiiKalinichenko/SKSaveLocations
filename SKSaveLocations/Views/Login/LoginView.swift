@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
-    @EnvironmentObject var viewModel: AuthViewModel
+    @StateObject var viewModel: LoginViewModel
+    private var emailBinding: Binding<String> {
+        Binding {
+            viewModel.email
+        } set: {
+            viewModel.emailChanged($0)
+        }
+    }
+    private var passwordBinding: Binding<String> {
+        Binding {
+            viewModel.password
+        } set: {
+            viewModel.passwordChanged($0)
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -20,25 +31,23 @@ struct LoginView: View {
                     .opacity(0.7)
                     .padding(.top, 10)
                 VStack {
-                    InputTextView(text: $email, title: "email", placeholder: "emailPlaceholder")
+                    InputTextView(text: emailBinding, title: "email", placeholder: "emailPlaceholder")
                         .autocapitalization(.none)
-                    InputTextView(text: $password, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
+                    InputTextView(text: passwordBinding, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
                 }
                 .padding(.horizontal)
                 .padding(.top, 40)
                 RoundedButton(label: "logIn") {
-                    Task {
-                        try await viewModel.logIn(email: email, password: password)
-                    }
-                    debugPrint("Button tapped")
+                    viewModel.logIn()
                 }
-                .disabled(!dataIsValidated)
-                .opacity(dataIsValidated ? 1 : 0.6)
+                .disabled(!viewModel.dataIsValidated)
+                .opacity(viewModel.dataIsValidated ? 1 : 0.6)
                 .padding(.horizontal, 16)
                 .padding(.top, 20)
                 Spacer()
                 NavigationLink {
-                    RegistrationView()
+                    let regViewModel = RegistrationViewModel(authService: viewModel.authService)
+                    RegistrationView(viewModel: regViewModel)
                         .navigationBarBackButtonHidden(true)
                 } label: {
                     HStack(spacing: 3) {
@@ -54,21 +63,6 @@ struct LoginView: View {
     }
 }
 
-extension LoginView: RequiredValidationProtocol {
-    var dataIsValidated: Bool {
-        return email.count > 5 && password.count > 5
-    }
+#Preview {
+    LoginView(viewModel: LoginViewModel(authService: AuthServiceMock()))
 }
-
-//#Preview {
-//    LoginView()
-//}
-
-//struct ContentView_Previews: PreviewProvider {
-//    static let mockVieModel = AuthViewModel()
-//
-//    static var previews: some View {
-//        LoginView()
-//            .environmentObject(mockVieModel)
-//    }
-//}

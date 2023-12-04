@@ -1,5 +1,5 @@
 //
-//  AuthViewModel.swift
+//  AuthService.swift
 //  SKSaveLocations
 //
 //  Created by Serhii Kalinichenko on 03.12.2023.
@@ -10,7 +10,8 @@ import Firebase
 import FirebaseFirestoreSwift
 
 @MainActor
-protocol AuthViewModelType {
+protocol AuthServiceType {
+    var sessionUser: UserInfo? { get }
     var user: User? { get }
     func createUser(email: String, password: String, name: String) async throws
     func logIn(email: String, password: String) async throws
@@ -18,8 +19,8 @@ protocol AuthViewModelType {
     func deleteAccount()
 }
 
-final class AuthViewModel: AuthViewModelType, ObservableObject {
-    @Published var sessionUser: FirebaseAuth.User?
+final class AuthService: AuthServiceType, ObservableObject {
+    @Published var sessionUser: UserInfo?
     @Published var user: User?
     private let usersCollection = "users"
     
@@ -65,7 +66,6 @@ final class AuthViewModel: AuthViewModelType, ObservableObject {
     }
     
     func deleteAccount() {
-        
     }
 
     private func fetchUser() async {
