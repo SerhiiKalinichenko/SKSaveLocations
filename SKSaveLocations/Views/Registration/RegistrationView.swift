@@ -65,38 +65,41 @@ struct MainRegistrationView: View {
     }
 
     var body: some View {
-        VStack {
-            LoginLogoView()
-                .opacity(0.7)
-                .padding(.top, 10)
-            ProfileImageView(image: image, name: nameBinding.wrappedValue)
-                .padding(.top, -20)
-                .onTapGesture {
-                    showImagePicker = true
-                }
+        ScrollView {
             VStack {
-                InputTextView(text: nameBinding, title: "name", placeholder: "namePlaceholder")
-                InputTextView(text: emailBinding, title: "email", placeholder: "emailPlaceholder")
-                    .autocapitalization(.none)
-                InputTextView(text: passwordBinding, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
-                InputTextView(text: confirmPasswordBinding, title: "confirmPassword", placeholder: "confirmPasswordPlaceholder", isSecureText: true)
+                LoginLogoView()
+                    .opacity(0.7)
+                    .padding(.top, 10)
+                ProfileImageView(image: image, name: nameBinding.wrappedValue)
+                    .padding(.top, -20)
+                    .onTapGesture {
+                        showImagePicker = true
+                    }
+                VStack {
+                    InputTextView(text: nameBinding, title: "name", placeholder: "namePlaceholder")
+                    InputTextView(text: emailBinding, title: "email", placeholder: "emailPlaceholder")
+                        .autocapitalization(.none)
+                    InputTextView(text: passwordBinding, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
+                    InputTextView(text: confirmPasswordBinding, title: "confirmPassword", placeholder: "confirmPasswordPlaceholder", isSecureText: true)
+                }
+                .padding(.horizontal)
+                .padding(.top, 10)
+                RoundedButton(label: "signIn") {
+                    viewModel.createUser(image: addedImage)
+                }
+                .frame(height: 44)
+                .padding(.horizontal, 16)
+                .padding(.top, 20)
+                .disabled(!viewModel.dataIsValidated)
+                .opacity(viewModel.dataIsValidated ? 1 : 0.6)
+                Spacer()
             }
-            .padding(.horizontal)
-            .padding(.top, 10)
-            RoundedButton(label: "signIn") {
-                viewModel.createUser(image: addedImage)
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(image: $addedImage)
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 20)
-            .disabled(!viewModel.dataIsValidated)
-            .opacity(viewModel.dataIsValidated ? 1 : 0.6)
-            Spacer()
-        }
-        .sheet(isPresented: $showImagePicker) {
-            ImagePicker(image: $addedImage)
-        }
-        .onChange(of: addedImage) {
-            loadImage()
+            .onChange(of: addedImage) {
+                loadImage()
+            }
         }
     }
     

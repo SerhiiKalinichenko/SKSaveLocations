@@ -32,7 +32,7 @@ struct ProfileView: View {
                         }
                     }
                 }
-                Section("Account") {
+                Section("account") {
                     RoundedButton(label: "logOut", icon: Image(systemName: "figure.walk.arrival")) {
                         viewModel.logOut()
                     }

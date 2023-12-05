@@ -16,8 +16,8 @@ struct RootView: View {
                 let viewModel = LoginViewModel(authService: authService)
                 LoginView(viewModel: viewModel)
             } else {
-                let viewModel = ProfileViewModel(authService: authService)
-                ProfileView(viewModel: viewModel)
+                let viewModel = MainTabViewModel(authService: authService)
+                MainTabView(viewModel: viewModel)
             }
         }
     }

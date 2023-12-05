@@ -40,6 +40,7 @@ struct LoginView: View {
                 RoundedButton(label: "logIn") {
                     viewModel.logIn()
                 }
+                .frame(height: 44)
                 .disabled(!viewModel.dataIsValidated)
                 .opacity(viewModel.dataIsValidated ? 1 : 0.6)
                 .padding(.horizontal, 16)

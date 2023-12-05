@@ -19,3 +19,8 @@
 "confirmPasswordPlaceholder" = "Enter password one more time";
 "login.dontHaveAccount" = "Don't have an account";
 "deleteAccount" = "Delete Account";
+
+"services" = "Services";
+"profile" = "Profile";
+"account" = "Account";
+"map" = "Map";
