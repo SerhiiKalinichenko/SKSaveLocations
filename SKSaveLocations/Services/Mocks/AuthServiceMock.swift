@@ -15,10 +15,10 @@ final class AuthServiceMock: AuthServiceType {
     
     init() {
         self.sessionUser = AuthUserMock(uid: "12345")
-        self.user = User(id: "12345", email: "test@test.com", name: "John Smith")
+        self.user = User(id: "12345", email: "test@test.com", name: "John Smith", phoneNumber: "123456789", photoURL: nil)
     }
     
-    func createUser(email: String, password: String, name: String) async throws {
+    func createUser(email: String, password: String, name: String, phoneNumber: String?, image: UIImage?) async throws {
     }
     
     func logIn(email: String, password: String) async throws {

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileImageView: View {
+    var imageURL: URL?
     var image: Image?
     var name: String = ""
     
@@ -21,6 +22,18 @@ struct ProfileImageView: View {
                         .frame(width: 70, height: 70)
                         .clipShape(Circle())
                         .shadow(radius: 4)
+                } else if let imageURL {
+                    AsyncImage(url: imageURL) {image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                            .shadow(radius: 4)
+                    } placeholder: {
+                        ProgressView()
+                            .tint(.mainBlue)
+                    }
+                    .frame(width: 70, height: 70)
                 } else {
                     Circle()
                         .frame(width: 70, height: 70)

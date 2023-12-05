@@ -84,7 +84,7 @@ struct MainRegistrationView: View {
             .padding(.horizontal)
             .padding(.top, 10)
             RoundedButton(label: "signIn") {
-                viewModel.createUser()
+                viewModel.createUser(image: addedImage)
             }
             .padding(.horizontal, 16)
             .padding(.top, 20)

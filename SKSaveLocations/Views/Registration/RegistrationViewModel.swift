@@ -5,7 +5,7 @@
 //  Created by Serhii Kalinichenko on 04.12.2023.
 //
 
-import Foundation
+import UIKit
 
 final class RegistrationViewModel: ObservableObject {
     let authService: any AuthServiceType
@@ -13,6 +13,7 @@ final class RegistrationViewModel: ObservableObject {
     @Published private(set) var email = ""
     @Published private(set) var password = ""
     @Published private(set) var confirmPassword = ""
+    @Published private(set) var phoneNumber = ""
     
     @MainActor var user: User? {
         authService.user
@@ -42,9 +43,9 @@ final class RegistrationViewModel: ObservableObject {
         confirmPassword = value
     }
     
-    func createUser() {
+    func createUser(image: UIImage?) {
         Task {
-            try await authService.createUser(email: email, password: password, name: name)
+            try await authService.createUser(email: email, password: password, name: name, phoneNumber: phoneNumber, image: image)
         }
     }
 }

@@ -18,7 +18,7 @@ struct ProfileView: View {
             List {
                 Section {
                     HStack {
-                        ProfileImageView(image: image, name: user.name)
+                        ProfileImageView(imageURL: user.avatarURL, image: image, name: user.name)
                             .onTapGesture {
                                 showImagePicker = true
                             }
@@ -53,6 +53,7 @@ struct ProfileView: View {
                 loadImage()
             }
         }
+            
     }
         
     func loadImage() {

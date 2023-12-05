@@ -18,6 +18,6 @@ final class AuthUserMock: NSObject, UserInfo {
     
     init(uid: String) {
         self.uid = uid
-        self.providerID = "123"
+        self.providerID = "0"
     }
 }
