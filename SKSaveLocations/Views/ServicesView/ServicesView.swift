@@ -18,6 +18,7 @@ struct ServicesView: View {
                     self.selected = service
                     debugPrint("sssss")
                 }
+                .frame(height: 44)
                 .listRowBackground(self.selected?.id == service.id ? Color.clear : .clear)
                 .navigationTitle("services")
             }

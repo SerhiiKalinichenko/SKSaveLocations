@@ -11,10 +11,6 @@ import SwiftUI
 final class ProfileViewModel: ObservableObject {
     let authService: any AuthServiceType
 
-    var user: User? {
-        authService.user
-    }
-
     init(authService: any AuthServiceType) {
         self.authService = authService
     }

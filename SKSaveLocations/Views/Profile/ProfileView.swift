@@ -14,7 +14,7 @@ struct ProfileView: View {
     @State private var addedImage: UIImage?
     
     var body: some View {
-        if let user = viewModel.user {
+        if let user = viewModel.authService.user {
             List {
                 Section {
                     HStack {
@@ -52,6 +52,9 @@ struct ProfileView: View {
             .onChange(of: addedImage) {
                 loadImage()
             }
+        } else {
+            ProgressView()
+                .tint(.mainBlue)
         }
             
     }

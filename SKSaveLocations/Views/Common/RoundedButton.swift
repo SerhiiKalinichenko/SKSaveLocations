@@ -13,6 +13,7 @@ struct RoundedButton: View {
     var buttonColor = Color.mainBlue
     var captionColor = Color.white
     let action: () -> Void
+    @State private var isPressed = false
     
     var body: some View {
         Button {
@@ -31,5 +32,20 @@ struct RoundedButton: View {
         }
         .background(buttonColor)
         .cornerRadius(12)
+        .buttonStyle(PressEffectButtonStyle(buttonColor: buttonColor, captionColor: captionColor))
+    }
+}
+
+struct PressEffectButtonStyle: ButtonStyle {
+    var buttonColor: Color
+    var captionColor: Color
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .background(buttonColor)
+            .foregroundColor(captionColor)
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+            .opacity(configuration.isPressed ? 0.7 : 1.0)
+            .animation(.easeInOut, value: configuration.isPressed)
     }
 }
