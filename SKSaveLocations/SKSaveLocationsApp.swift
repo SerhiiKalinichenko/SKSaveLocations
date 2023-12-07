@@ -11,12 +11,12 @@ import SwiftUI
 @main
 struct SKSaveLocationsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var authService = AuthService()
+    @StateObject private var firebaseService = FirebaseService()
     
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(authService)
+                .environmentObject(firebaseService)
         }
     }
 }

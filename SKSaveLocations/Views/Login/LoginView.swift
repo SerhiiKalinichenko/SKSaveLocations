@@ -47,7 +47,7 @@ struct LoginView: View {
                 .padding(.top, 20)
                 Spacer()
                 NavigationLink {
-                    let regViewModel = RegistrationViewModel(authService: viewModel.authService)
+                    let regViewModel = RegistrationViewModel(firebaseService: viewModel.firebaseService)
                     RegistrationView(viewModel: regViewModel)
                         .navigationBarBackButtonHidden(true)
                 } label: {
@@ -65,5 +65,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(viewModel: LoginViewModel(authService: AuthServiceMock()))
+    LoginView(viewModel: LoginViewModel(firebaseService: FirebaseServiceMock()))
 }

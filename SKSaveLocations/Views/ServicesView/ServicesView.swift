@@ -9,20 +9,21 @@ import SwiftUI
 
 struct ServicesView: View {
     @StateObject var viewModel: ServicesViewModel
-    @State private var selected: Service?
+    @State private var goToMap = false
     
     var body: some View {
         NavigationView {
             List(viewModel.services) { service in
                 RoundedButton(label: service.name, icon: service.image) {
-                    self.selected = service
-                    debugPrint("sssss")
+                    goToMap = true
                 }
                 .frame(height: 44)
-                .listRowBackground(self.selected?.id == service.id ? Color.clear : .clear)
                 .navigationTitle("services")
             }
         }
+        .fullScreenCover(isPresented: $goToMap, content: {
+            MapView(viewModel: MapViewModel())
+        })
     }
 }
 

@@ -9,17 +9,17 @@ import SwiftUI
 
 @MainActor
 final class MainTabViewModel: ObservableObject {
-    let authService: any AuthServiceType
+    let firebaseService: any FirebaseServiceType
 
     var profileVM: ProfileViewModel {
-        return ProfileViewModel(authService: authService)
+        return ProfileViewModel(firebaseService: firebaseService)
     }
     
     var servicesVM: ServicesViewModel {
         return ServicesViewModel()
     }
 
-    init(authService: any AuthServiceType) {
-        self.authService = authService
+    init(firebaseService: any FirebaseServiceType) {
+        self.firebaseService = firebaseService
     }
 }

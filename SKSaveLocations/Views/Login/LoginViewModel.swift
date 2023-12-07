@@ -8,7 +8,7 @@
 import Foundation
 
 final class LoginViewModel: ObservableObject {
-    let authService: any AuthServiceType
+    let firebaseService: any FirebaseServiceType
     @Published private(set) var email = ""
     @Published private(set) var password = ""
     
@@ -16,8 +16,8 @@ final class LoginViewModel: ObservableObject {
         return email.count > 5 && password.count > 5
     }
     
-    init(authService: any AuthServiceType) {
-        self.authService = authService
+    init(firebaseService: any FirebaseServiceType) {
+        self.firebaseService = firebaseService
     }
     
     func emailChanged(_ value: String) {
@@ -30,7 +30,7 @@ final class LoginViewModel: ObservableObject {
     
     func logIn() {
         Task {
-            try await authService.logIn(email: email, password: password)
+            try await firebaseService.logIn(email: email, password: password)
         }
     }
 }

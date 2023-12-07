@@ -1,5 +1,5 @@
 //
-//  AuthService.swift
+//  FirebaseService.swift
 //  SKSaveLocations
 //
 //  Created by Serhii Kalinichenko on 03.12.2023.
@@ -11,7 +11,7 @@ import FirebaseStorage
 import Foundation
 
 @MainActor
-protocol AuthServiceType {
+protocol FirebaseServiceType: ObservableObject {
     var sessionUser: UserInfo? { get }
     var user: User? { get }
     func createUser(email: String, password: String, name: String, phoneNumber: String?, image: UIImage?) async throws
@@ -20,7 +20,7 @@ protocol AuthServiceType {
     func deleteAccount()
 }
 
-final class AuthService: AuthServiceType, ObservableObject {
+final class FirebaseService: FirebaseServiceType {
     @Published var sessionUser: UserInfo?
     @Published var user: User?
     private let usersCollection = "users"

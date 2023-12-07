@@ -13,11 +13,15 @@ struct Service: Identifiable {
     let symbolName: String?
 }
 
-extension Service {
+extension Service:  Hashable {
     var image: Image? {
         if let symbolName {
             return Image(systemName: symbolName)
         }
         return nil
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

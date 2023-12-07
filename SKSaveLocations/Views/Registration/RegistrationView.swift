@@ -112,5 +112,5 @@ struct MainRegistrationView: View {
 }
 
 #Preview {
-    RegistrationView(viewModel: RegistrationViewModel(authService: AuthServiceMock()))
+    RegistrationView(viewModel: RegistrationViewModel(firebaseService: FirebaseServiceMock()))
 }

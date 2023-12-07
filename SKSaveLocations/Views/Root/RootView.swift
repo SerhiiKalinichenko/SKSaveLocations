@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct RootView: View {
-    @EnvironmentObject var authService: AuthService
+    @EnvironmentObject var firebaseService: FirebaseService
     
     var body: some View {
         Group {
-            if authService.sessionUser == nil {
-                let viewModel = LoginViewModel(authService: authService)
+            if firebaseService.sessionUser == nil {
+                let viewModel = LoginViewModel(firebaseService: firebaseService)
                 LoginView(viewModel: viewModel)
             } else {
-                let viewModel = MainTabViewModel(authService: authService)
+                let viewModel = MainTabViewModel(firebaseService: firebaseService)
                 MainTabView(viewModel: viewModel)
             }
         }

@@ -14,7 +14,7 @@ struct ProfileView: View {
     @State private var addedImage: UIImage?
     
     var body: some View {
-        if let user = viewModel.authService.user {
+        if let user = viewModel.firebaseService.user {
             List {
                 Section {
                     HStack {
@@ -56,7 +56,6 @@ struct ProfileView: View {
             ProgressView()
                 .tint(.mainBlue)
         }
-            
     }
         
     func loadImage() {
@@ -68,5 +67,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(viewModel: ProfileViewModel(authService: AuthServiceMock()))
+    ProfileView(viewModel: ProfileViewModel(firebaseService: FirebaseServiceMock()))
 }

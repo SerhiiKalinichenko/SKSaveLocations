@@ -9,17 +9,17 @@ import SwiftUI
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
-    let authService: any AuthServiceType
+    let firebaseService: any FirebaseServiceType
 
-    init(authService: any AuthServiceType) {
-        self.authService = authService
+    init(firebaseService: any FirebaseServiceType) {
+        self.firebaseService = firebaseService
     }
     
     func logOut() {
-        authService.logOut()
+        firebaseService.logOut()
     }
     
     func deleteAccount() {
-        authService.deleteAccount()
+        firebaseService.deleteAccount()
     }
 }

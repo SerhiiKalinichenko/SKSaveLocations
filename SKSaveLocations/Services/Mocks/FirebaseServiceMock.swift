@@ -1,5 +1,5 @@
 //
-//  AuthServiceMock.swift
+//  FirebaseServiceMock.swift
 //  SKSaveLocations
 //
 //  Created by Serhii Kalinichenko on 04.12.2023.
@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-final class AuthServiceMock: AuthServiceType {
+final class FirebaseServiceMock: FirebaseServiceType {
     @Published var sessionUser: UserInfo?
     @Published var user: User?
     
