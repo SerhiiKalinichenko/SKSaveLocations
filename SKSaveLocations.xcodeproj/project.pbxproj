@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A13A5F52B244F4F00CAAD52 /* SaveLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13A5F42B244F4F00CAAD52 /* SaveLocations.swift */; };
+		0A13A5F72B244F6A00CAAD52 /* SaveLocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A13A5F62B244F6A00CAAD52 /* SaveLocationsViewModel.swift */; };
+		0A17DCDA2B2A06DC005E1FB4 /* RoundMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A17DCD92B2A06DC005E1FB4 /* RoundMapButtonView.swift */; };
+		0A1E13E92B25F7C700163711 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1E13E82B25F7C700163711 /* View.swift */; };
 		0A3803022B20556300D3FC7D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3803012B20556300D3FC7D /* LocationService.swift */; };
 		0A3803062B20575900D3FC7D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3803052B20575900D3FC7D /* MapView.swift */; };
 		0A3803082B20577900D3FC7D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3803072B20577900D3FC7D /* MapViewModel.swift */; };
@@ -14,6 +18,7 @@
 		0A45B6E52B13825200C82BEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E42B13825200C82BEB /* Images.xcassets */; };
 		0A45B6E82B13825200C82BEB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */; };
 		0A5269D62B1C73E700A59851 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5269D52B1C73E700A59851 /* Launch Screen.storyboard */; };
+		0A5F0C362B2B5C470018E714 /* Rout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F0C352B2B5C470018E714 /* Rout.swift */; };
 		0A896D512B1E163700A06FE1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D502B1E163700A06FE1 /* ProfileViewModel.swift */; };
 		0A896D532B1E19EF00A06FE1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D522B1E19EF00A06FE1 /* LoginViewModel.swift */; };
 		0A896D552B1E1C3200A06FE1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A896D542B1E1C3200A06FE1 /* RegistrationViewModel.swift */; };
@@ -77,8 +82,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A13A5F42B244F4F00CAAD52 /* SaveLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocations.swift; sourceTree = "<group>"; };
+		0A13A5F62B244F6A00CAAD52 /* SaveLocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationsViewModel.swift; sourceTree = "<group>"; };
+		0A17DCD92B2A06DC005E1FB4 /* RoundMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundMapButtonView.swift; sourceTree = "<group>"; };
+		0A1E13E82B25F7C700163711 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		0A3803012B20556300D3FC7D /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		0A3803032B2056A700D3FC7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A3803052B20575900D3FC7D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0A3803072B20577900D3FC7D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		0A45B6DD2B13825000C82BEB /* SKSaveLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKSaveLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +94,7 @@
 		0A45B6E42B13825200C82BEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A5269D52B1C73E700A59851 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0A5F0C352B2B5C470018E714 /* Rout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rout.swift; sourceTree = "<group>"; };
 		0A896D502B1E163700A06FE1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		0A896D522B1E19EF00A06FE1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0A896D542B1E1C3200A06FE1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
@@ -160,11 +169,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A13A5F32B244EF400CAAD52 /* SaveLocations */ = {
+			isa = PBXGroup;
+			children = (
+				0A13A5F42B244F4F00CAAD52 /* SaveLocations.swift */,
+				0A13A5F62B244F6A00CAAD52 /* SaveLocationsViewModel.swift */,
+			);
+			path = SaveLocations;
+			sourceTree = "<group>";
+		};
 		0A3803042B20573600D3FC7D /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				0A3803052B20575900D3FC7D /* MapView.swift */,
 				0A3803072B20577900D3FC7D /* MapViewModel.swift */,
+				0A17DCD92B2A06DC005E1FB4 /* RoundMapButtonView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -188,7 +207,6 @@
 		0A45B6DF2B13825000C82BEB /* SKSaveLocations */ = {
 			isa = PBXGroup;
 			children = (
-				0A3803032B2056A700D3FC7D /* Info.plist */,
 				0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */,
 				0A896D5C2B1E393100A06FE1 /* Extensions */,
 				0ABFD6512B1C860F00EEBC4A /* Models */,
@@ -241,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				0A896D5D2B1E394E00A06FE1 /* String.swift */,
+				0A1E13E82B25F7C700163711 /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				0A896D562B1E251C00A06FE1 /* Mocks */,
+				0A5F0C352B2B5C470018E714 /* Rout.swift */,
 				0AF895982B1FC66F008B4D45 /* Service.swift */,
 				0ABFD6522B1C862200EEBC4A /* User.swift */,
 			);
@@ -311,6 +331,7 @@
 				0AFEE9962B1CBEFD00F772D9 /* Profile */,
 				0A896D4E2B1E155400A06FE1 /* Registration */,
 				0ABFD64E2B1C82B100EEBC4A /* Root */,
+				0A13A5F32B244EF400CAAD52 /* SaveLocations */,
 				0AF895952B1FBE63008B4D45 /* ServicesView */,
 			);
 			path = Views;
@@ -459,11 +480,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A17DCDA2B2A06DC005E1FB4 /* RoundMapButtonView.swift in Sources */,
 				0AE476EA2B1B6D9D0091DB03 /* LoginView.swift in Sources */,
 				0AF895992B1FC66F008B4D45 /* Service.swift in Sources */,
 				0AF895922B1FB3BB008B4D45 /* MainTabViewModel.swift in Sources */,
+				0A5F0C362B2B5C470018E714 /* Rout.swift in Sources */,
 				0AF895972B1FBF17008B4D45 /* ServicesViewModel.swift in Sources */,
 				0A896D5B2B1E292200A06FE1 /* FirebaseServiceMock.swift in Sources */,
+				0A13A5F52B244F4F00CAAD52 /* SaveLocations.swift in Sources */,
+				0A13A5F72B244F6A00CAAD52 /* SaveLocationsViewModel.swift in Sources */,
 				0AB0FFD82B1BBF3B00629D8A /* ProfileImageView.swift in Sources */,
 				0AB0FFD42B1B9E5000629D8A /* LoginLogoView.swift in Sources */,
 				0AB0FFD02B1B926900629D8A /* RoundedButton.swift in Sources */,
@@ -480,6 +505,7 @@
 				0AF895942B1FB70B008B4D45 /* ServicesView.swift in Sources */,
 				0AB0FFDA2B1BC45500629D8A /* ImagePicker.swift in Sources */,
 				0A896D5E2B1E394E00A06FE1 /* String.swift in Sources */,
+				0A1E13E92B25F7C700163711 /* View.swift in Sources */,
 				0A896D552B1E1C3200A06FE1 /* RegistrationViewModel.swift in Sources */,
 				0AE476EC2B1B6FDF0091DB03 /* InputTextView.swift in Sources */,
 				0A45B6E12B13825000C82BEB /* SKSaveLocationsApp.swift in Sources */,
@@ -630,13 +656,17 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SKSaveLocations/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "SKSaveLocations/Preview\\ Content";
 				DEVELOPMENT_TEAM = 8Z64NDKFZY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SKSaveLocations/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need use camera for taken photo";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to your location because ...";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need this permission in cases where an application accesses location information while running in the background.";
+				INFOPLIST_KEY_NSLocationUsageDescription = aaa;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = wserf;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need acces to photo library for getting photo for profile";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -665,13 +695,17 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SKSaveLocations/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "SKSaveLocations/Preview\\ Content";
 				DEVELOPMENT_TEAM = 8Z64NDKFZY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SKSaveLocations/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need use camera for taken photo";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need access to your location because ...";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need this permission in cases where an application accesses location information while running in the background.";
+				INFOPLIST_KEY_NSLocationUsageDescription = aaa;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = wserf;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need acces to photo library for getting photo for profile";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -9,12 +9,21 @@ import CoreLocation
 
 final class MapViewModel: ObservableObject {
     let locationService: LocationService
+    let firebaseService: any FirebaseServiceType
+    @Published var routesList: [Rout]?
 
-    init() {
-        locationService = LocationService()
+    init(firebaseService: any FirebaseServiceType) {
+        self.firebaseService = firebaseService
+        locationService = LocationService.shared
     }
     
     func checkAuthorization() {
         locationService.checkAuthorization()
+    }
+    
+    func getRoutesList() {
+        Task {
+            routesList = try await firebaseService.getRoutsList()
+        }
     }
 }

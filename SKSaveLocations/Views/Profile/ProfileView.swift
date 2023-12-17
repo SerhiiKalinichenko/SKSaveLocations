@@ -14,7 +14,7 @@ struct ProfileView: View {
     @State private var addedImage: UIImage?
     
     var body: some View {
-        if let user = viewModel.firebaseService.user {
+        if let user = viewModel.currentUser {
             List {
                 Section {
                     HStack {
@@ -23,9 +23,22 @@ struct ProfileView: View {
                                 showImagePicker = true
                             }
                         VStack(alignment: .leading, spacing: 5) {
-                            Text(user.name)
-                                .font(.system(size: 23))
-                                .fontWeight(.semibold)
+                            HStack {
+                                Text(user.name)
+                                    .font(.system(size: 23))
+                                    .fontWeight(.semibold)
+                                Spacer()
+                                Button(action: {
+                                    viewModel.changeUsersAvatar(addedImage)
+                                    addedImage = nil
+                                }) {
+                                    Text("save")
+                                        .frame(height: 44)
+                                        .foregroundStyle(.red)
+                                }
+                                .buttonStyle(.plain)
+                                .hiddenConditionally(isHidden: addedImage == nil)
+                            }
                             Text(verbatim: user.email)
                                 .font(.system(size: 20))
                                 .foregroundColor(.gray)
@@ -57,7 +70,7 @@ struct ProfileView: View {
                 .tint(.mainBlue)
         }
     }
-        
+    
     func loadImage() {
         guard let addedImage else {
             return

@@ -16,7 +16,7 @@ final class MainTabViewModel: ObservableObject {
     }
     
     var servicesVM: ServicesViewModel {
-        return ServicesViewModel()
+        return ServicesViewModel(firebaseService: firebaseService)
     }
 
     init(firebaseService: any FirebaseServiceType) {

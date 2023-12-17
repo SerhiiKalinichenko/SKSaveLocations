@@ -15,10 +15,6 @@ final class RegistrationViewModel: ObservableObject {
     @Published private(set) var confirmPassword = ""
     @Published private(set) var phoneNumber = ""
     
-    @MainActor var user: User? {
-        firebaseService.user
-    }
-    
     var dataIsValidated: Bool {
         return name.count > 2 && email.count > 5 && password.count > 5 && password == confirmPassword
     }

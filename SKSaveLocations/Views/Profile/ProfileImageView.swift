@@ -37,7 +37,7 @@ struct ProfileImageView: View {
                 } else {
                     Circle()
                         .frame(width: 70, height: 70)
-                        .foregroundStyle(.lightGray)
+                        .foregroundStyle(.mainGray)
                         .overlay(
                             Text(name.initials)
                                 .font(.system(size: 25))

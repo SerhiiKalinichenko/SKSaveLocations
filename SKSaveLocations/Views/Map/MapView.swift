@@ -13,47 +13,37 @@ struct MapView: View {
     @Environment(\.dismiss) var dismiss
     @State var location: CLLocation?
     @State private var position: MapCameraPosition = .automatic
-    
+    @State private var showBottomView = false
+    private let botomViewHeights = stride(from: 0.1, through: 0.7, by: 0.35).map { PresentationDetent.fraction($0) }
+
     var body: some View {
-//        VStack {
-        ZStack(alignment: .topLeading) {
-            Map(position: $position) {
-                UserAnnotation()
-            }
-            .mapStyle(.hybrid(elevation: .realistic))
-            .mapControls {
-                MapUserLocationButton()
-                MapCompass()
-                MapScaleView()
-            }
-            
-            Button {
-               dismiss()
-            } label: {
-                ZStack {
-                    Circle()
-                        .foregroundStyle(Color.mainBlue)
-                        .opacity(0.3)
-                    Image(systemName: "xmark.circle")
-                        .foregroundStyle(.white)
+        ZStack(alignment: .bottomTrailing) {
+            ZStack(alignment: .topLeading) {
+                Map(position: $position) {
+                    UserAnnotation()
                 }
+                .mapStyle(.hybrid(elevation: .realistic))
+                .mapControls {
+                    MapUserLocationButton()
+                    MapCompass()
+                    MapScaleView()
+                }
+                RoundMapButtonView(systemIconName: "xmark.circle") {
+                    dismiss()
+                }
+                .padding(.leading, 16)
             }
-            .frame(height: 44)
-            .padding(.leading, 16)
-            
+            RoundMapButtonView(systemIconName: "map") {
+                showBottomView.toggle()
+                //viewModel.getRoutesList()
+            }
+            .padding(.trailing, 16)
         }
-        
-        
-//            Text(location?.description ?? "Waiting for location")
-//                .padding()
-//                .foregroundColor(.secondary)
-//            Button {
-//                Task { await self.updateLocation() }
-//            } label: {
-//                Text("Get Location")
-//            }
-//        }
-//        .padding()
+        .sheet(isPresented: $showBottomView) {
+            Text("This Bottom View")
+                .presentationDetents(Set(botomViewHeights))
+                .presentationBackground(.thinMaterial)
+        }
         .task {
             viewModel.checkAuthorization()
         }

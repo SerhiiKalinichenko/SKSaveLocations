@@ -9,11 +9,12 @@ import SwiftUI
 
 struct Service: Identifiable {
     let id = UUID()
+    let type: ServiceType
     let name: LocalizedStringKey
     let symbolName: String?
 }
 
-extension Service:  Hashable {
+extension Service: Hashable {
     var image: Image? {
         if let symbolName {
             return Image(systemName: symbolName)
