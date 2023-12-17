@@ -9,12 +9,13 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    var viewModel: MapViewModel
+    @ObservedObject var viewModel: MapViewModel
     @Environment(\.dismiss) var dismiss
     @State var location: CLLocation?
     @State private var position: MapCameraPosition = .automatic
     @State private var showBottomView = false
-    private let botomViewHeights = stride(from: 0.1, through: 0.7, by: 0.35).map { PresentationDetent.fraction($0) }
+    @State private var tappedButton: MapButtonType?
+    private let botomViewHeights = stride(from: 0.1, through: 1, by: 0.45).map { PresentationDetent.fraction($0) }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -35,20 +36,31 @@ struct MapView: View {
             }
             RoundMapButtonView(systemIconName: "map") {
                 showBottomView.toggle()
-                //viewModel.getRoutesList()
             }
             .padding(.trailing, 16)
         }
         .sheet(isPresented: $showBottomView) {
-            Text("This Bottom View")
+            MapButtonsCollectionView(viewModel: viewModel, tappedButton: $tappedButton)
+                .padding(.horizontal, 16)
                 .presentationDetents(Set(botomViewHeights))
                 .presentationBackground(.thinMaterial)
+            switch tappedButton {
+            case .routes:
+                List(viewModel.routesList ?? [], id: \.id) { rout in
+                    Text("Rout: \(rout.description ?? "Some rout")")
+                }
+                .scrollContentBackground(.hidden)
+            default:
+                EmptyView()
+            }
+            Spacer()
         }
         .task {
             viewModel.checkAuthorization()
         }
     }
 
+    /*
     private func updateLocation() async {
         do {
             location = try await viewModel.locationService.currentLocation
@@ -68,6 +80,7 @@ struct MapView: View {
             position = .region(MKCoordinateRegion(center: regionCenter, span: regionSpan))
         }
     }
+     */
 }
 
 //#Preview {
