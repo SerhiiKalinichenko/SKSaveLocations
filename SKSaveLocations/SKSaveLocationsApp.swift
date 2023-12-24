@@ -15,8 +15,13 @@ struct SKSaveLocationsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .environmentObject(firebaseService)
+            if firebaseService.sessionUser == nil {
+                let viewModel = LoginViewModel(firebaseService: firebaseService)
+                LoginView(viewModel: viewModel)
+            } else {
+                let viewModel = MainTabViewModel(firebaseService: firebaseService)
+                MainTabView(viewModel: viewModel)
+            }
         }
     }
 }
