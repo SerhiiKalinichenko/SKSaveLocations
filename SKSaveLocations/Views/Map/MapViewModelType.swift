@@ -12,4 +12,5 @@ protocol MapViewModelType: ObservableObject {
     var routesList: [Rout]? { get }
     func checkAuthorization()
     func getRoutesList()
+    func getLocations(for rout: Rout)
 }

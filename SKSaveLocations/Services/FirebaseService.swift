@@ -23,6 +23,7 @@ protocol FirebaseServiceType: ObservableObject {
     func addLocation(collection: String, location: LocationData)
     func getRoutsList() async throws -> [Rout]?
     func addRoute(_ rout: Rout) -> String?
+    func getRoutLocations(_ rout: Rout) async throws -> [LocationData]?
 }
 
 final class FirebaseService: FirebaseServiceType {
@@ -64,13 +65,9 @@ final class FirebaseService: FirebaseServiceType {
     }
     
     func logIn(email: String, password: String) async throws {
-        do {
-            let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            sessionUser = result.user
-            await fetchUser()
-        } catch {
-            debugPrint("\(error.localizedDescription)")
-        }
+        let result = try await Auth.auth().signIn(withEmail: email, password: password)
+        sessionUser = result.user
+        await fetchUser()
     }
     
     func logOut() {
@@ -156,5 +153,17 @@ extension FirebaseService {
               return try? $0.data(as: Rout.self)
         }
         return routes
+    }
+    
+    func getRoutLocations(_ rout: Rout) async throws -> [LocationData]? {
+        guard let usersUid = sessionUser?.uid else {
+            return nil
+        }
+        let locationsRef = Firestore.firestore().collection(locationsCollection).document(usersUid).collection(rout.id)
+        let response = try await locationsRef.getDocuments()
+        let locations: [LocationData] = response.documents.compactMap {
+              return try? $0.data(as: LocationData.self)
+        }
+        return locations
     }
 }

@@ -40,18 +40,25 @@ struct MapView: View {
             .padding(.trailing, 16)
         }
         .sheet(isPresented: $showBottomView) {
-            MapButtonsCollectionView(viewModel: viewModel, tappedButton: $tappedButton)
-                .padding(.horizontal, 16)
-                .presentationDetents(Set(botomViewHeights))
-                .presentationBackground(.thinMaterial)
-            switch tappedButton {
-            case .routes:
-                List(viewModel.routesList ?? [], id: \.id) { rout in
-                    Text("Rout: \(rout.description ?? "Some rout")")
+            VStack {
+                MapButtonsCollectionView(viewModel: viewModel, tappedButton: $tappedButton)
+                    .frame(height: 50)
+                    .padding(.horizontal, 16)
+                    .presentationDetents(Set(botomViewHeights))
+                    .presentationBackground(.thinMaterial)
+                switch tappedButton {
+                case .routes:
+                    List(viewModel.routesList ?? [], id: \.id) { rout in
+                        Text("Rout: \(rout.description ?? "Some rout")")
+                            .onTapGesture {
+                                viewModel.getLocations(for: rout)
+                                showBottomView = false
+                            }
+                    }
+                    .listStyle(PlainListStyle())
+                default:
+                    EmptyView()
                 }
-                .scrollContentBackground(.hidden)
-            default:
-                EmptyView()
             }
             Spacer()
         }

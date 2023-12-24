@@ -5,12 +5,16 @@
 //  Created by Serhii Kalinichenko on 04.12.2023.
 //
 
-import Foundation
+import Firebase
+import SwiftUI
 
+@MainActor
 final class LoginViewModel: ObservableObject {
     let firebaseService: any FirebaseServiceType
+    let alertTitle: LocalizedStringKey = "error"
     @Published private(set) var email = ""
     @Published private(set) var password = ""
+    @Published var alert: AlertType?
     
     var dataIsValidated: Bool {
         return email.count > 5 && password.count > 5
@@ -30,7 +34,11 @@ final class LoginViewModel: ObservableObject {
     
     func logIn() {
         Task {
-            try await firebaseService.logIn(email: email, password: password)
+            do {
+                try await firebaseService.logIn(email: email, password: password)
+            } catch let error {
+                alert = .error(error)
+            }
         }
     }
 }

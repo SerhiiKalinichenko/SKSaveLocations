@@ -5,6 +5,8 @@
   Created by Serhii Kalinichenko on 02.12.2023.
   
 */
+"ok" = "Зрозуміло";
+"error" = "Помилка";
 "back" = "Повернутися";
 "save" = "Зберігти";
 "logIn" = "Увійти";
@@ -29,3 +31,22 @@
 "trackPosition" = "Відслідковувати положення";
 "stopTracking" = "Зупинити відстеження";
 "routes" = "Маршрути";
+
+"error.email.alreadyInUse" = "Така електронна адреса вже використовується.";
+"error.account.disabled" = "Обліковий запис користувача на сервері вимкнено.";
+"error.provider.disabled" = "Адміністратор вимкнув вхід за допомогою вказаного провайдера.";
+"error.email.invalid" = "Помилкова електронна адреса.";
+"error.wrongPassword" = "Неправильний пароль.";
+"error.account.notFound" = "Рахунок не знайдено.";
+"error.network" = "Помилка мережі.";
+"error.password.weak" = "Пароль занадто слабкий.";
+"error.email.missing" = "Відсутня електронна адреса.";
+"error.internal" = "Внутрішня помилка.";
+"error.token" = "Недійсний токен.";
+"error.tooManyRequests" = "Надто багато запитів було зроблено до сервера.";
+"error.authentication" = "Ппомилка аутентифікації.";
+"error.operation.cancelled" = "Операцію скасовано.";
+"error.invalidArgument" = "Недійсний аргумент.";
+"error.document.notFound" = "Потрібний документ не знайдено.";
+"error.document.alreadyExist" = "Деякі документи, які Ви намагалися створити, вже існують.";
+"error.permissionDenied" = "Доступ заборонено.";

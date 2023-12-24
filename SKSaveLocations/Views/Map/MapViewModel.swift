@@ -11,6 +11,7 @@ final class MapViewModel: MapViewModelType {
     let locationService: LocationService
     let firebaseService: any FirebaseServiceType
     @Published var routesList: [Rout]?
+    @Published var routeLocations: [LocationData]?
     var mapButtonData = [MapButtonData]()
 
     init(firebaseService: any FirebaseServiceType) {
@@ -27,6 +28,13 @@ final class MapViewModel: MapViewModelType {
     func getRoutesList() {
         Task {
             routesList = try await firebaseService.getRoutsList()
+        }
+    }
+    
+    @MainActor
+    func getLocations(for rout: Rout) {
+        Task {
+            routeLocations = try await firebaseService.getRoutLocations(rout)
         }
     }
     

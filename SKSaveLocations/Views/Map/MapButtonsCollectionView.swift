@@ -34,7 +34,6 @@ struct MapButtonsCollectionView<VM>: View where VM: MapViewModelType {
                 }
             }
         }
-        .frame(maxHeight: 70)
     }
 }
 

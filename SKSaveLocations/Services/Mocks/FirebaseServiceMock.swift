@@ -47,4 +47,8 @@ final class FirebaseServiceMock: FirebaseServiceType {
     func addRoute(_ rout: Rout) -> String? {
         return nil
     }
+    
+    func getRoutLocations(_ rout: Rout) async throws -> [LocationData]? {
+        return nil
+    }
 }

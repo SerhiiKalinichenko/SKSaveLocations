@@ -5,6 +5,8 @@
   Created by Serhii Kalinichenko on 02.12.2023.
   
 */
+"ok" = "Ok";
+"error" = "Error";
 "back" = "Back";
 "save" = "Save";
 "logIn" = "Log In";
@@ -28,3 +30,22 @@
 "trackPosition" = "Track position";
 "stopTracking" = "Stop tracking";
 "routes" = "Routes";
+
+"error.email.alreadyInUse" = "The Email is already in use.";
+"error.account.disabled" = "User's account is disabled on the server.";
+"error.provider.disabled" = "An administrator disabled sign in with the specified identity provider.";
+"error.email.invalid" = "The Email is invalid.";
+"error.wrongPassword" = "Wrong password.";
+"error.account.notFound" = "User account was not found.";
+"error.network" = "A network error has occurred.";
+"error.password.weak" = "The password is too weak.";
+"error.email.missing" = "Email is missing.";
+"error.internal" = "Internal error.";
+"error.token" = "Invalid custom token.";
+"error.tooManyRequests" = "Too many requests have been made to the server.";
+"error.authentication" = "Authentication error.";
+"error.operation.cancelled" = "The operation was cancelled.";
+"error.invalidArgument" = "Invalid argument.";
+"error.document.notFound" = "Requested document was not found.";
+"error.document.alreadyExist" = "Some of the documents you tried to create already exist.";
+"error.permissionDenied" = "Permission Denied.";
