@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Service: Identifiable {
+struct Сhapter: Identifiable {
     let id = UUID()
     let type: ServiceType
     let name: LocalizedStringKey
     let symbolName: String?
 }
 
-extension Service: Hashable {
+extension Сhapter: Hashable {
     var image: Image? {
         if let symbolName {
             return Image(systemName: symbolName)

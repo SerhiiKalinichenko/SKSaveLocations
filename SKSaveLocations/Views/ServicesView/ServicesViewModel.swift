@@ -14,12 +14,12 @@ enum ServiceType {
 
 final class ServicesViewModel: ObservableObject {
     let firebaseService: any FirebaseServiceType
-    private(set) var services: [Service]
+    private(set) var services: [Сhapter]
     
     init(firebaseService: any FirebaseServiceType) {
         self.firebaseService = firebaseService
-        let mapService = Service(type: .map, name: "map" , symbolName: "map.circle")
-        let locationService = Service(type: .saveLocation, name: "saveLocation" , symbolName: "map.circle")
+        let mapService = Сhapter(type: .map, name: "map" , symbolName: "map.circle")
+        let locationService = Сhapter(type: .saveLocation, name: "saveLocation" , symbolName: "map.circle")
         services = [mapService, locationService]
     }
 }

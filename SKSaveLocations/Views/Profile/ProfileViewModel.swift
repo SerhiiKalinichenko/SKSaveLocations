@@ -8,17 +8,18 @@
 import Combine
 import SwiftUI
 
-@MainActor
 final class ProfileViewModel: ObservableObject {
-    @Published var currentUser: User?
+    @Published private(set) var currentUser: User?
     let firebaseService: any FirebaseServiceType
     private var cancellables = Set<AnyCancellable>()
 
     init(firebaseService: any FirebaseServiceType) {
         self.firebaseService = firebaseService
-        firebaseService.user.sink(receiveValue: { [weak self] user in
-            self?.currentUser = user
-        }).store(in: &cancellables)
+        firebaseService.user
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] user in
+                self?.currentUser = user
+            }.store(in: &cancellables)
     }
     
     func logOut() {

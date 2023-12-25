@@ -8,7 +8,7 @@
 import Firebase
 import SwiftUI
 
-@MainActor
+//@MainActor
 final class LoginViewModel: ObservableObject {
     let firebaseService: any FirebaseServiceType
     let alertTitle: LocalizedStringKey = "error"
@@ -20,8 +20,8 @@ final class LoginViewModel: ObservableObject {
         return email.count > 5 && password.count > 5
     }
     
-    init(firebaseService: any FirebaseServiceType) {
-        self.firebaseService = firebaseService
+    init(serviceHolder: ServiceHolderType) {
+        self.firebaseService = serviceHolder.getFBService()
     }
     
     func emailChanged(_ value: String) {

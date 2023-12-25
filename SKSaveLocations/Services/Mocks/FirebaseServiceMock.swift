@@ -11,11 +11,9 @@ import Firebase
 import FirebaseFirestoreSwift
 
 final class FirebaseServiceMock: FirebaseServiceType {
-    @Published var sessionUser: UserInfo?
     private(set) var user = CurrentValueSubject<User?, Never>(nil)
     
     init() {
-        self.sessionUser = AuthUserMock(uid: "12345")
         self.user.value = User(id: "12345", email: "test@test.com", name: "John Smith", phoneNumber: "123456789", photoURL: nil)
     }
     

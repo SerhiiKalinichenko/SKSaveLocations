@@ -11,15 +11,24 @@ import SwiftUI
 @main
 struct SKSaveLocationsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var firebaseService = FirebaseService()
+    @StateObject var session = UserSession.shared
     
     var body: some Scene {
         WindowGroup {
-            if firebaseService.sessionUser == nil {
-                let viewModel = LoginViewModel(firebaseService: firebaseService)
+            switch session.state {
+            case .undefined:
+                ZStack {
+                    Image(.logo)
+                        .opacity(0.1)
+                    ProgressView()
+                        .tint(.mainBlue)
+                }
+                .toolbar(.hidden, for: .tabBar)
+            case .closed:
+                let viewModel = LoginViewModel(serviceHolder: ServiceHolder.shared)
                 LoginView(viewModel: viewModel)
-            } else {
-                let viewModel = MainTabViewModel(firebaseService: firebaseService)
+            case .open:
+                let viewModel = MainTabViewModel(serviceHolder: ServiceHolder.shared)
                 MainTabView(viewModel: viewModel)
             }
         }
@@ -33,6 +42,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         AppCheck.setAppCheckProviderFactory(providerFactory)
 #endif
         FirebaseApp.configure()
+        let _ = ServiceHolder.shared
         return true
     }
 }

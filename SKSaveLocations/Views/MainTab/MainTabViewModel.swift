@@ -19,7 +19,7 @@ final class MainTabViewModel: ObservableObject {
         return ServicesViewModel(firebaseService: firebaseService)
     }
 
-    init(firebaseService: any FirebaseServiceType) {
-        self.firebaseService = firebaseService
+    init(serviceHolder: ServiceHolderType) {
+        self.firebaseService = serviceHolder.getFBService()
     }
 }

@@ -66,5 +66,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(viewModel: LoginViewModel(firebaseService: FirebaseServiceMock()))
+    LoginView(viewModel: LoginViewModel(serviceHolder: ServiceHolderMock()))
 }

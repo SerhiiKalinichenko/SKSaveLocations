@@ -11,23 +11,8 @@ import FirebaseFirestoreSwift
 import FirebaseStorage
 import Foundation
 
-@MainActor
-protocol FirebaseServiceType: ObservableObject {
-    var sessionUser: UserInfo? { get }
-    var user: CurrentValueSubject<User?, Never> { get }
-    func createUser(email: String, password: String, name: String, phoneNumber: String?, image: UIImage?) async throws
-    func changeUsersAvatar(_ image: UIImage?) async
-    func logIn(email: String, password: String) async throws
-    func logOut()
-    func deleteAccount()
-    func addLocation(collection: String, location: LocationData)
-    func getRoutsList() async throws -> [Rout]?
-    func addRoute(_ rout: Rout) -> String?
-    func getRoutLocations(_ rout: Rout) async throws -> [LocationData]?
-}
-
 final class FirebaseService: FirebaseServiceType {
-    @Published var sessionUser: UserInfo?
+    private var sessionUser: UserInfo?
     private(set) var user = CurrentValueSubject<User?, Never>(nil)
     private let usersCollection = "users"
     private let avatarsCollection = "avatars"
@@ -75,6 +60,7 @@ final class FirebaseService: FirebaseServiceType {
             try Auth.auth().signOut()
             sessionUser = nil
             user.value = nil
+            UserSession.shared.user = nil
         } catch {
             debugPrint("\(error.localizedDescription)")
         }
@@ -85,9 +71,13 @@ final class FirebaseService: FirebaseServiceType {
 
     private func fetchUser() async {
         guard let userUid = Auth.auth().currentUser?.uid, let snapshot = try? await Firestore.firestore().collection(usersCollection).document(userUid).getDocument() else {
+            UserSession.shared.user = nil
             return
         }
         user.value = try? snapshot.data(as: User.self)
+        Task { @MainActor in
+            UserSession.shared.user = user.value
+        }
     }
         
     private func setAvatarImage(_ image: UIImage?, for userID: String) async -> URL? {
