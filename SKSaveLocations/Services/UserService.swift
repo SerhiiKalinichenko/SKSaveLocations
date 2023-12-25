@@ -1,5 +1,5 @@
 //
-//  FirebaseService.swift
+//  UserService.swift
 //  SKSaveLocations
 //
 //  Created by Serhii Kalinichenko on 03.12.2023.
@@ -11,13 +11,11 @@ import FirebaseFirestoreSwift
 import FirebaseStorage
 import Foundation
 
-final class FirebaseService: FirebaseServiceType {
+final class UserService: UserServiceType {
     private var sessionUser: UserInfo?
     private(set) var user = CurrentValueSubject<User?, Never>(nil)
     private let usersCollection = "users"
     private let avatarsCollection = "avatars"
-    private let locationsCollection = "locations"
-    private let routesCollection = "routes"
     
     init() {
         self.sessionUser = Auth.auth().currentUser
@@ -98,62 +96,5 @@ final class FirebaseService: FirebaseServiceType {
         let _ = try await imageRef.putDataAsync(imageData)
         let url = try await imageRef.downloadURL()
         return url
-    }
-}
-
-extension FirebaseService {
-    func addLocation(collection: String, location: LocationData) {
-        guard let usersUid = sessionUser?.uid else {
-            return
-        }
-        do {
-            let userLocationsRef = Firestore.firestore().collection(locationsCollection).document(usersUid)
-            try userLocationsRef.collection(collection).document().setData(from: location)
-        }
-        catch {
-            debugPrint("\(error.localizedDescription)")
-        }
-    }
-    
-    func addRoute(_ rout: Rout) -> String? {
-        guard let usersUid = sessionUser?.uid else {
-            return nil
-        }
-        let routeRef = Firestore.firestore().collection(routesCollection).document(usersUid).collection(routesCollection).document()
-        let docId = routeRef.documentID
-        var routWithId = rout
-        routWithId.id = docId
-        saveRoute(routWithId, ref: routeRef)
-        return docId
-    }
-    
-    private func saveRoute(_ rout: Rout, ref: DocumentReference) {
-        Task {
-            try ref.setData(from: rout)
-        }
-    }
-    
-    func getRoutsList() async throws -> [Rout]? {
-        guard let usersUid = sessionUser?.uid else {
-            return nil
-        }
-        let routeRef = Firestore.firestore().collection(routesCollection).document(usersUid).collection(routesCollection)
-        let response = try await routeRef.getDocuments()
-        let routes: [Rout] = response.documents.compactMap {
-              return try? $0.data(as: Rout.self)
-        }
-        return routes
-    }
-    
-    func getRoutLocations(_ rout: Rout) async throws -> [LocationData]? {
-        guard let usersUid = sessionUser?.uid else {
-            return nil
-        }
-        let locationsRef = Firestore.firestore().collection(locationsCollection).document(usersUid).collection(rout.id)
-        let response = try await locationsRef.getDocuments()
-        let locations: [LocationData] = response.documents.compactMap {
-              return try? $0.data(as: LocationData.self)
-        }
-        return locations
     }
 }

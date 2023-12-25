@@ -29,14 +29,14 @@ struct ServicesView: View {
             }
         }
         .fullScreenCover(isPresented: $goToMap, content: {
-            MapView(viewModel: MapViewModel(firebaseService: viewModel.firebaseService))
+            MapView(viewModel: MapViewModel(serviceHolder: ServiceHolder.shared))
         })
         .fullScreenCover(isPresented: $goToShareLocation, content: {
-            SaveLocations(viewModel: SaveLocationsViewModel(firebaseService: viewModel.firebaseService))
+            SaveLocations(viewModel: SaveLocationsViewModel(serviceHolder: ServiceHolder.shared))
         })
     }
 }
 
 #Preview {
-    ServicesView(viewModel: ServicesViewModel(firebaseService: FirebaseServiceMock()))
+    ServicesView(viewModel: ServicesViewModel())
 }

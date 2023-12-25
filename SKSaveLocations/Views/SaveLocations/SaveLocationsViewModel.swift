@@ -21,22 +21,21 @@ extension LocationData: Identifiable {
 }
 
 final class SaveLocationsViewModel: ObservableObject {
-    let firebaseService: any FirebaseServiceType
+    let locationsStorageService: any LocationsStorageServiceType
     @Published var lastLocation: CLLocation?
     @Published var locations: [LocationData] = []
     private let locationService: LocationService
     private var locationsName = "Name of location"
     
-    init(firebaseService: any FirebaseServiceType) {
-        self.firebaseService = firebaseService
+    init(serviceHolder: ServiceHolderType) {
+        self.locationsStorageService = serviceHolder.getLocationsStorageService()
         self.locationService = LocationService.shared
-        //locationService.checkAuthorization()
         locationService.delegate = self
     }
     
     @MainActor func startTracking() {
         let route = Rout(description: "Rout_\(Date())")
-        if let locationsName = firebaseService.addRoute(route) {
+        if let locationsName = locationsStorageService.addRoute(route) {
             self.locationsName = locationsName
             locationService.startUpdatingLocation()
         }
@@ -52,6 +51,6 @@ extension SaveLocationsViewModel: LocationServiceDelegate {
         lastLocation = location
         let newLocation = LocationData(timeInterval: Date().timeIntervalSince1970, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         locations.append(newLocation)
-        firebaseService.addLocation(collection: locationsName, location: newLocation)
+        locationsStorageService.addLocation(collection: locationsName, location: newLocation)
     }
 }

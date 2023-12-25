@@ -47,7 +47,7 @@ struct LoginView: View {
                 .padding(.top, 20)
                 Spacer()
                 NavigationLink {
-                    let regViewModel = RegistrationViewModel(firebaseService: viewModel.firebaseService)
+                    let regViewModel = RegistrationViewModel(serviceHolder: ServiceHolder.shared)
                     RegistrationView(viewModel: regViewModel)
                         .navigationBarBackButtonHidden(true)
                 } label: {

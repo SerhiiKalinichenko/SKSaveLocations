@@ -8,7 +8,11 @@
 import Foundation
 
 final class ServiceHolderMock: ServiceHolderType {
-    func getFBService() -> any FirebaseServiceType {
-        return FirebaseServiceMock()
+    func getLocationsStorageService() -> any LocationsStorageServiceType {
+        return LocationsStorageServiceMock()
+    }
+    
+    func getUserService() -> any UserServiceType {
+        return UserServiceMock()
     }
 }

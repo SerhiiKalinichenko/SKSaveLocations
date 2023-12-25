@@ -80,5 +80,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(viewModel: ProfileViewModel(firebaseService: FirebaseServiceMock()))
+    ProfileView(viewModel: ProfileViewModel(serviceHolder: ServiceHolderMock()))
 }

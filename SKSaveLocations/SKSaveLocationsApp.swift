@@ -28,7 +28,7 @@ struct SKSaveLocationsApp: App {
                 let viewModel = LoginViewModel(serviceHolder: ServiceHolder.shared)
                 LoginView(viewModel: viewModel)
             case .open:
-                let viewModel = MainTabViewModel(serviceHolder: ServiceHolder.shared)
+                let viewModel = MainTabViewModel()
                 MainTabView(viewModel: viewModel)
             }
         }

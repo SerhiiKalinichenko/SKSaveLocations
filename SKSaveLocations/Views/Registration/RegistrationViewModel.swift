@@ -8,7 +8,7 @@
 import UIKit
 
 final class RegistrationViewModel: ObservableObject {
-    let firebaseService: any FirebaseServiceType
+    let userService: any UserServiceType
     @Published private(set) var name = ""
     @Published private(set) var email = ""
     @Published private(set) var password = ""
@@ -19,8 +19,8 @@ final class RegistrationViewModel: ObservableObject {
         return name.count > 2 && email.count > 5 && password.count > 5 && password == confirmPassword
     }
     
-    init(firebaseService: any FirebaseServiceType) {
-        self.firebaseService = firebaseService
+    init(serviceHolder: ServiceHolderType) {
+        self.userService = serviceHolder.getUserService()
     }
     
     func nameChanged(_ value: String) {
@@ -41,7 +41,7 @@ final class RegistrationViewModel: ObservableObject {
     
     func createUser(image: UIImage?) {
         Task {
-            try await firebaseService.createUser(email: email, password: password, name: name, phoneNumber: phoneNumber, image: image)
+            try await userService.createUser(email: email, password: password, name: name, phoneNumber: phoneNumber, image: image)
         }
     }
 }

@@ -17,7 +17,8 @@ final class ServiceHolder {
     }
     
     private func initServices() {
-        add((any FirebaseServiceType).self, for: FirebaseService())
+        add((any LocationsStorageServiceType).self, for: LocationsStorageService())
+        add((any UserServiceType).self, for: UserService())
     }
     
     func add<T>(_ type: T.Type, for instance: Service) {
@@ -45,7 +46,11 @@ final class ServiceHolder {
 }
 
 extension ServiceHolder: ServiceHolderType {
-    func getFBService() -> any FirebaseServiceType {
-        return get(by: (any FirebaseServiceType).self)
+    func getLocationsStorageService() -> any LocationsStorageServiceType {
+        return get(by: (any LocationsStorageServiceType).self)
+    }
+    
+    func getUserService() -> any UserServiceType {
+        return get(by: (any UserServiceType).self)
     }
 }

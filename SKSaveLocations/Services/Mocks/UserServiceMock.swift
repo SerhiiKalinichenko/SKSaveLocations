@@ -1,16 +1,14 @@
 //
-//  FirebaseServiceMock.swift
+//  UserServiceMock.swift
 //  SKSaveLocations
 //
 //  Created by Serhii Kalinichenko on 04.12.2023.
 //
 
 import Combine
-import Foundation
-import Firebase
-import FirebaseFirestoreSwift
+import UIKit
 
-final class FirebaseServiceMock: FirebaseServiceType {
+final class UserServiceMock: UserServiceType {
     private(set) var user = CurrentValueSubject<User?, Never>(nil)
     
     init() {
@@ -30,23 +28,5 @@ final class FirebaseServiceMock: FirebaseServiceType {
     }
     
     func deleteAccount() {
-    }
-
-    private func fetchUser() async {
-    }
-    
-    func addLocation(collection: String, location: LocationData) {
-    }
-    
-    func getRoutsList() async throws -> [Rout]? {
-        return nil
-    }
-    
-    func addRoute(_ rout: Rout) -> String? {
-        return nil
-    }
-    
-    func getRoutLocations(_ rout: Rout) async throws -> [LocationData]? {
-        return nil
     }
 }

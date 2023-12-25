@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ServiceHolderType {
-    //func getUserService() -> any UserServiceType
-    func getFBService() -> any FirebaseServiceType
+    func getLocationsStorageService() -> any LocationsStorageServiceType
+    func getUserService() -> any UserServiceType
 }

@@ -49,5 +49,5 @@ struct SaveLocations: View {
 }
 
 #Preview {
-    SaveLocations(viewModel: SaveLocationsViewModel(firebaseService: FirebaseServiceMock()))
+    SaveLocations(viewModel: SaveLocationsViewModel(serviceHolder: ServiceHolderMock()))
 }

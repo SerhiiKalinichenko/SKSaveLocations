@@ -9,13 +9,15 @@ import SwiftUI
 
 final class MapViewModel: MapViewModelType {
     let locationService: LocationService
-    let firebaseService: any FirebaseServiceType
+    let locationsStorageService: any LocationsStorageServiceType
+    let userService: any UserServiceType
     @Published var routesList: [Rout]?
     @Published var routeLocations: [LocationData]?
     var mapButtonData = [MapButtonData]()
 
-    init(firebaseService: any FirebaseServiceType) {
-        self.firebaseService = firebaseService
+    init(serviceHolder: ServiceHolderType) {
+        self.userService = serviceHolder.getUserService()
+        self.locationsStorageService = serviceHolder.getLocationsStorageService()
         locationService = LocationService.shared
         setMapButtonsData()
     }
@@ -27,14 +29,14 @@ final class MapViewModel: MapViewModelType {
     @MainActor
     func getRoutesList() {
         Task {
-            routesList = try await firebaseService.getRoutsList()
+            routesList = try await locationsStorageService.getRoutsList()
         }
     }
     
     @MainActor
     func getLocations(for rout: Rout) {
         Task {
-            routeLocations = try await firebaseService.getRoutLocations(rout)
+            routeLocations = try await locationsStorageService.getRoutLocations(rout)
         }
     }
     

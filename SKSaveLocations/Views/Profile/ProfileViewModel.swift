@@ -10,12 +10,12 @@ import SwiftUI
 
 final class ProfileViewModel: ObservableObject {
     @Published private(set) var currentUser: User?
-    let firebaseService: any FirebaseServiceType
+    let userService: any UserServiceType
     private var cancellables = Set<AnyCancellable>()
 
-    init(firebaseService: any FirebaseServiceType) {
-        self.firebaseService = firebaseService
-        firebaseService.user
+    init(serviceHolder: ServiceHolderType) {
+        self.userService = serviceHolder.getUserService()
+        userService.user
             .receive(on: DispatchQueue.main)
             .sink { [weak self] user in
                 self?.currentUser = user
@@ -23,16 +23,16 @@ final class ProfileViewModel: ObservableObject {
     }
     
     func logOut() {
-        firebaseService.logOut()
+        userService.logOut()
     }
     
     func deleteAccount() {
-        firebaseService.deleteAccount()
+        userService.deleteAccount()
     }
     
     func changeUsersAvatar(_ image: UIImage?) {
         Task {
-            await firebaseService.changeUsersAvatar(image)
+            await userService.changeUsersAvatar(image)
         }
     }
 }

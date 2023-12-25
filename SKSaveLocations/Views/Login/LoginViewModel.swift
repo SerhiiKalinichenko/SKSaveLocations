@@ -8,9 +8,8 @@
 import Firebase
 import SwiftUI
 
-//@MainActor
 final class LoginViewModel: ObservableObject {
-    let firebaseService: any FirebaseServiceType
+    let userService: any UserServiceType
     let alertTitle: LocalizedStringKey = "error"
     @Published private(set) var email = ""
     @Published private(set) var password = ""
@@ -21,7 +20,7 @@ final class LoginViewModel: ObservableObject {
     }
     
     init(serviceHolder: ServiceHolderType) {
-        self.firebaseService = serviceHolder.getFBService()
+        self.userService = serviceHolder.getUserService()
     }
     
     func emailChanged(_ value: String) {
@@ -35,7 +34,7 @@ final class LoginViewModel: ObservableObject {
     func logIn() {
         Task {
             do {
-                try await firebaseService.logIn(email: email, password: password)
+                try await userService.logIn(email: email, password: password)
             } catch let error {
                 alert = .error(error)
             }
