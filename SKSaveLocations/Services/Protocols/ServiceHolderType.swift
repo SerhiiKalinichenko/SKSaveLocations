@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ServiceHolderType {
+    func getLocationService() -> any LocationServiceType
     func getLocationsStorageService() -> any LocationsStorageServiceType
     func getUserService() -> any UserServiceType
 }

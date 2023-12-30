@@ -8,6 +8,10 @@
 import Foundation
 
 final class ServiceHolderMock: ServiceHolderType {
+    func getLocationService() -> any LocationServiceType {
+        return LocationServiceMock()
+    }
+    
     func getLocationsStorageService() -> any LocationsStorageServiceType {
         return LocationsStorageServiceMock()
     }

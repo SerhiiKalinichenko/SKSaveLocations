@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class MapViewModel: MapViewModelType {
-    let locationService: LocationService
+    let locationService: any LocationServiceType
     let locationsStorageService: any LocationsStorageServiceType
     let userService: any UserServiceType
     @Published var routesList: [Rout]?
@@ -18,7 +18,7 @@ final class MapViewModel: MapViewModelType {
     init(serviceHolder: ServiceHolderType) {
         self.userService = serviceHolder.getUserService()
         self.locationsStorageService = serviceHolder.getLocationsStorageService()
-        locationService = LocationService.shared
+        self.locationService = serviceHolder.getLocationService()
         setMapButtonsData()
     }
     

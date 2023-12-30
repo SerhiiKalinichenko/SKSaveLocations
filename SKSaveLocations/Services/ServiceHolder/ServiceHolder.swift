@@ -17,6 +17,7 @@ final class ServiceHolder {
     }
     
     private func initServices() {
+        add((any LocationServiceType).self, for: LocationService())
         add((any LocationsStorageServiceType).self, for: LocationsStorageService())
         add((any UserServiceType).self, for: UserService())
     }
@@ -46,6 +47,10 @@ final class ServiceHolder {
 }
 
 extension ServiceHolder: ServiceHolderType {
+    func getLocationService() -> any LocationServiceType {
+        return get(by: (any LocationServiceType).self)
+    }
+    
     func getLocationsStorageService() -> any LocationsStorageServiceType {
         return get(by: (any LocationsStorageServiceType).self)
     }

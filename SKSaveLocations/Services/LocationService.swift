@@ -5,32 +5,17 @@
 //  Created by Serhii Kalinichenko on 06.12.2023.
 //
 
+import Combine
 import CoreLocation
 
-protocol LocationServiceDelegate: AnyObject {
-    func reportNewLocation(_ location: CLLocation)
-}
-
-final class LocationService: NSObject {
+final class LocationService: NSObject, LocationServiceType {
     
-    static let shared = LocationService()
-    
-    weak var delegate: LocationServiceDelegate?
-    
-    var currentLocation: CLLocation {
-        get async throws {
-            return try await withCheckedThrowingContinuation { continuation in
-                self.continuation = continuation
-                locationManager.requestLocation()
-            }
-        }
-    }
-    
+    private(set) var currentLocation = CurrentValueSubject<CLLocation?, Never>(nil)
+        
     private let locationManager = CLLocationManager()
     private let desiredAccuracyAndFilter = 15.0
-    private var continuation: CheckedContinuation<CLLocation, Error>?
     
-    private override init() {
+    override init() {
         super.init()
         locationManager.delegate = self
         //locationManager.distanceFilter = desiredAccuracyAndFilter
@@ -69,15 +54,11 @@ final class LocationService: NSObject {
 extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            continuation?.resume(returning: location)
-            continuation = nil
-            delegate?.reportNewLocation(location)
+            currentLocation.value = location
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        continuation?.resume(throwing: error)
-        continuation = nil
         if let error = error as? CLError, error.code == .denied {
             //manager.stopUpdatingLocation()
         }

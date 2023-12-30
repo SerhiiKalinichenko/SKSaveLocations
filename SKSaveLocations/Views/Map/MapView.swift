@@ -68,15 +68,6 @@ struct MapView: View {
     }
 
     /*
-    private func updateLocation() async {
-        do {
-            location = try await viewModel.locationService.currentLocation
-            updateMapPosition()
-        } catch {
-            debugPrint(error.localizedDescription)
-        }
-    }
-
     private func updateMapPosition() {
         if let location {
             let regionCenter = CLLocationCoordinate2D(
