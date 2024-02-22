@@ -15,6 +15,12 @@ struct LocationData: Codable {
     let longitude: Double
 }
 
+extension LocationData {
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+
 extension LocationData: Identifiable {
     var id: String {
         return String(timeInterval)

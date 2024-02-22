@@ -5,12 +5,14 @@
 //  Created by Serhii Kalinichenko on 06.12.2023.
 //
 
+import MapKit
 import SwiftUI
 
 final class MapViewModel: MapViewModelType {
     let locationService: any LocationServiceType
     let locationsStorageService: any LocationsStorageServiceType
     let userService: any UserServiceType
+    @Published var position: MapCameraPosition = .automatic
     @Published var routesList: [Rout]?
     @Published var routeLocations: [LocationData]?
     var mapButtonData = [MapButtonData]()

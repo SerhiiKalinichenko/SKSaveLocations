@@ -12,7 +12,6 @@ struct MapView: View {
     @ObservedObject var viewModel: MapViewModel
     @Environment(\.dismiss) var dismiss
     @State var location: CLLocation?
-    @State private var position: MapCameraPosition = .automatic
     @State private var showBottomView = false
     @State private var tappedButton: MapButtonType?
     private let botomViewHeights = stride(from: 0.1, through: 1, by: 0.45).map { PresentationDetent.fraction($0) }
@@ -20,8 +19,12 @@ struct MapView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             ZStack(alignment: .topLeading) {
-                Map(position: $position) {
-                    UserAnnotation()
+                Map(position: $viewModel.position) {
+                    if let locations = viewModel.routeLocations?.compactMap({ $0.coordinate }) {
+                        MapPolyline(coordinates: locations)
+                            .stroke(.blue, lineWidth: 3)
+                            .mapOverlayLevel(level: .aboveLabels)
+                    }
                 }
                 .mapStyle(.hybrid(elevation: .realistic))
                 .mapControls {
@@ -44,7 +47,7 @@ struct MapView: View {
                 MapButtonsCollectionView(viewModel: viewModel, tappedButton: $tappedButton)
                     .frame(height: 50)
                     .padding(.horizontal, 16)
-                    .presentationDetents(Set(botomViewHeights))
+                    .presentationDetents([.height(100), .medium, .large])
                     .presentationBackground(.thinMaterial)
                 switch tappedButton {
                 case .routes:
@@ -55,7 +58,8 @@ struct MapView: View {
                                 showBottomView = false
                             }
                     }
-                    .listStyle(PlainListStyle())
+                    .listStyle(.automatic)
+                    .scrollContentBackground(.hidden)
                 default:
                     EmptyView()
                 }
@@ -66,21 +70,8 @@ struct MapView: View {
             viewModel.checkAuthorization()
         }
     }
-
-    /*
-    private func updateMapPosition() {
-        if let location {
-            let regionCenter = CLLocationCoordinate2D(
-                latitude: location.coordinate.latitude,
-                longitude: location.coordinate.longitude
-            )
-            let regionSpan = MKCoordinateSpan(latitudeDelta: 0.125, longitudeDelta: 0.125)
-            position = .region(MKCoordinateRegion(center: regionCenter, span: regionSpan))
-        }
-    }
-     */
 }
 
-//#Preview {
-//    MapView()
-//}
+#Preview {
+    MapView(viewModel: MapViewModel(serviceHolder: ServiceHolderMock()))
+}
