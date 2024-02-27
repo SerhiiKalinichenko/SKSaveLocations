@@ -37,8 +37,8 @@ struct RoundedButton: View {
 }
 
 struct PressEffectButtonStyle: ButtonStyle {
-    var buttonColor: Color
-    var captionColor: Color
+    let buttonColor: Color
+    let captionColor: Color
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label

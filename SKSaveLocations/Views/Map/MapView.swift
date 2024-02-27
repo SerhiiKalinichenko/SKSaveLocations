@@ -21,7 +21,7 @@ struct MapView: View {
             ZStack(alignment: .topLeading) {
                 Map(position: $viewModel.position) {
                     if let locations = viewModel.routeLocations?.compactMap({ $0.coordinate }) {
-                        MapPolyline(coordinates: locations)
+                        MapPolyline(coordinates: locations, contourStyle: .straight)
                             .stroke(.blue, lineWidth: 3)
                             .mapOverlayLevel(level: .aboveLabels)
                     }

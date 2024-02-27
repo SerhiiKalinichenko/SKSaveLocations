@@ -61,7 +61,7 @@ struct LoginView: View {
                 }
             }
         }
-        .showMessage(type: $viewModel.alert, title: viewModel.alertTitle)
+        .showAlert($viewModel.alert)
     }
 }
 

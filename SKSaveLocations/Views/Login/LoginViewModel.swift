@@ -10,7 +10,6 @@ import SwiftUI
 
 final class LoginViewModel: ObservableObject {
     let userService: any UserServiceType
-    let alertTitle: LocalizedStringKey = "error"
     @Published private(set) var email = ""
     @Published private(set) var password = ""
     @Published var alert: AlertType?
@@ -36,7 +35,7 @@ final class LoginViewModel: ObservableObject {
             do {
                 try await userService.logIn(email: email, password: password)
             } catch let error {
-                alert = .error(error)
+                alert = .error(error, "error")
             }
         }
     }
