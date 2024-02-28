@@ -18,11 +18,8 @@ final class LocationService: NSObject, LocationServiceType {
     override init() {
         super.init()
         locationManager.delegate = self
-        //locationManager.distanceFilter = desiredAccuracyAndFilter
         locationManager.distanceFilter = kCLDistanceFilterNone
-        //desiredAccuracy
-        //kCLLocationAccuracyBestForNavigation
-        //locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.showsBackgroundLocationIndicator = true
     }
     
     func checkAuthorization() {
@@ -35,20 +32,16 @@ final class LocationService: NSObject, LocationServiceType {
     }
     
     func startUpdatingLocation() {
+        locationManager.distanceFilter = desiredAccuracyAndFilter
         locationManager.allowsBackgroundLocationUpdates = true
-        // TODO: set it propertly
-        //locationManager.showsBackgroundLocationIndicator = true
         locationManager.startUpdatingLocation()
     }
     
     func stopUpdatingLocation() {
-        locationManager.allowsBackgroundLocationUpdates = true
         locationManager.stopUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = false
+        locationManager.distanceFilter = kCLDistanceFilterNone
     }
-    
-//    private func requestOnTimeLocation() {
-//        locationManager.requestLocation()
-//    }
 }
 
 extension LocationService: CLLocationManagerDelegate {
@@ -59,9 +52,6 @@ extension LocationService: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if let error = error as? CLError, error.code == .denied {
-            //manager.stopUpdatingLocation()
-        }
         manager.stopUpdatingLocation()
     }
     
@@ -69,12 +59,10 @@ extension LocationService: CLLocationManagerDelegate {
         switch status {
         case .notDetermined:
             debugPrint("option - not determined")
-            //locationManager.requestWhenInUseAuthorization()
         case .restricted:
             debugPrint("option - restricted")
         case .denied:
             debugPrint("option - dont't allow")
-            // 1
         case .authorizedAlways:
             debugPrint("option - allow always")
         case .authorizedWhenInUse:

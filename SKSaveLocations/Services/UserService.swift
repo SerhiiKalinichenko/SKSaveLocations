@@ -66,10 +66,37 @@ final class UserService: UserServiceType {
     
     func deleteAccount() {
     }
+    
+    func addActiveRout(_ id: String?) async {
+        if var user = user.value {
+            do {
+                user.activeRout = id
+                let encodedUser = try Firestore.Encoder().encode(user)
+                try await Firestore.firestore().collection(usersCollection).document(user.id).setData(encodedUser)
+            } catch {
+                debugPrint("\(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func fetchUsers() async -> [User]? {
+        guard let snapshot = try? await Firestore.firestore().collection(usersCollection).getDocuments() else {
+            return nil
+        }
+        var users = [User]()
+        snapshot.documents.forEach { document in
+            if let user = try? document.data(as: User.self) {
+                users.append(user)
+            }
+        }
+        return users
+    }
 
     private func fetchUser() async {
         guard let userUid = Auth.auth().currentUser?.uid, let snapshot = try? await Firestore.firestore().collection(usersCollection).document(userUid).getDocument() else {
-            UserSession.shared.user = nil
+            Task { @MainActor in
+                UserSession.shared.user = nil
+            }
             return
         }
         user.value = try? snapshot.data(as: User.self)

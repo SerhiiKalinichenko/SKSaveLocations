@@ -13,6 +13,7 @@ struct User: Codable, Identifiable {
     let name: String
     let phoneNumber: String?
     let photoURL: String?
+    var activeRout: String?
 }
 
 extension User {

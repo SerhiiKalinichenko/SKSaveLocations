@@ -15,10 +15,17 @@ final class UserServiceMock: UserServiceType {
         self.user.value = User(id: "12345", email: "test@test.com", name: "John Smith", phoneNumber: "123456789", photoURL: nil)
     }
     
+    func addActiveRout(_ id: String?) async {
+    }
+    
     func createUser(email: String, password: String, name: String, phoneNumber: String?, image: UIImage?) async throws {
     }
     
     func changeUsersAvatar(_ image: UIImage?) async {
+    }
+    
+    func fetchUsers() async -> [User]? {
+        return nil
     }
     
     func logIn(email: String, password: String) async throws {

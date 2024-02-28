@@ -32,12 +32,14 @@ final class SaveLocationsViewModel: ObservableObject {
     @Published var lastLocation: CLLocation?
     @Published var locations: [LocationData] = []
     private let locationService: any LocationServiceType
+    private let userService: any UserServiceType
     private var locationsName = "Name of location"
     private var cancellables = Set<AnyCancellable>()
     
     init(serviceHolder: ServiceHolderType) {
         self.locationsStorageService = serviceHolder.getLocationsStorageService()
         self.locationService = serviceHolder.getLocationService()
+        self.userService = serviceHolder.getUserService()
         locationService.currentLocation.sink { [weak self] location in
             if let self, let location {
                 lastLocation = location
@@ -53,10 +55,16 @@ final class SaveLocationsViewModel: ObservableObject {
         if let locationsName = locationsStorageService.addRoute(route) {
             self.locationsName = locationsName
             locationService.startUpdatingLocation()
+            Task {
+                await userService.addActiveRout(locationsName)
+            }
         }
     }
     
     func stopTracking() {
         locationService.stopUpdatingLocation()
+        Task {
+            await userService.addActiveRout(nil)
+        }
     }
 }

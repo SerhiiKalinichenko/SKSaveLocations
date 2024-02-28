@@ -9,13 +9,13 @@ import MapKit
 import SwiftUI
 
 final class MapViewModel: MapViewModelType {
-    let locationService: any LocationServiceType
-    let locationsStorageService: any LocationsStorageServiceType
-    let userService: any UserServiceType
     @Published var position: MapCameraPosition = .automatic
     @Published var routesList: [Rout]?
     @Published var routeLocations: [LocationData]?
     var mapButtonData = [MapButtonData]()
+    private let locationService: any LocationServiceType
+    private let locationsStorageService: any LocationsStorageServiceType
+    private let userService: any UserServiceType
 
     init(serviceHolder: ServiceHolderType) {
         self.userService = serviceHolder.getUserService()
@@ -38,7 +38,15 @@ final class MapViewModel: MapViewModelType {
     @MainActor
     func getLocations(for rout: Rout) {
         Task {
-            routeLocations = try await locationsStorageService.getRoutLocations(rout)
+            let locations = try await locationsStorageService.getRoutLocations(rout)
+            routeLocations = locations?.sorted { $0.timeInterval < $1.timeInterval }
+        }
+    }
+    
+    @MainActor
+    func getUsersList() {
+        Task {
+            let users = await userService.fetchUsers()
         }
     }
     

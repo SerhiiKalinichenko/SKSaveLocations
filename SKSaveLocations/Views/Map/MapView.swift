@@ -46,8 +46,8 @@ struct MapView: View {
             VStack {
                 MapButtonsCollectionView(viewModel: viewModel, tappedButton: $tappedButton)
                     .frame(height: 50)
-                    .padding(.horizontal, 16)
-                    .presentationDetents([.height(100), .medium, .large])
+                    .padding([.top, .horizontal], 16)
+                    .presentationDetents([.medium, .large])
                     .presentationBackground(.thinMaterial)
                 switch tappedButton {
                 case .routes:
