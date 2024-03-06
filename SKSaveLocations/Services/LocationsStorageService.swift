@@ -68,6 +68,18 @@ final class LocationsStorageService: LocationsStorageServiceType {
         return locations
     }
     
+    func getRoutLocations(for user: User) async throws -> [LocationData]? {
+        guard let routId = user.activeRout else {
+            return nil
+        }
+        let locationsRef = Firestore.firestore().collection(locationsCollection).document(user.id).collection(routId)
+        let response = try await locationsRef.getDocuments()
+        let locations: [LocationData] = response.documents.compactMap {
+              return try? $0.data(as: LocationData.self)
+        }
+        return locations.sorted { $0.timeInterval < $1.timeInterval }
+    }
+    
     private func saveRoute(_ rout: Rout, ref: DocumentReference) {
         Task {
             try ref.setData(from: rout)

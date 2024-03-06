@@ -2,7 +2,7 @@
 //  MapView.swift
 //  SKSaveLocations
 //
-//  Created by Serhii Kalinichenko on 06.12.2023.
+//  Created by Serhii Kalinichenko on 29.02.2024.
 //
 
 import MapKit
@@ -24,6 +24,17 @@ struct MapView: View {
                         MapPolyline(coordinates: locations, contourStyle: .straight)
                             .stroke(.blue, lineWidth: 3)
                             .mapOverlayLevel(level: .aboveLabels)
+                    }
+                    if let observedLocation = viewModel.observedLocation {
+                        Annotation("User", coordinate: observedLocation, content: {
+                            ZStack {
+                                Circle()
+                                    .foregroundStyle(.red)
+                                Image(systemName: "figure.wave")
+                                    .padding(7)
+                            }
+                        })
+                        .annotationTitles(.hidden)
                     }
                 }
                 .mapStyle(.hybrid(elevation: .realistic))
@@ -60,14 +71,39 @@ struct MapView: View {
                     }
                     .listStyle(.automatic)
                     .scrollContentBackground(.hidden)
+                case .observedUsers:
+                    if viewModel.observedUsers?.count == 0 {
+                        VStack {
+                            Spacer()
+                            if viewModel.observedUsers == nil {
+                                ProgressView()
+                                    .tint(.mainBlue)
+                            } else {
+                                Text("noObserved.users")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 25))
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.mainBlue)
+                                    .padding(.horizontal, 16)
+                            }
+                            Spacer()
+                        }
+                    } else {
+                        List(viewModel.observedUsers ?? [], id: \.id) { user in
+                            ObservedUserView(user: user)
+                                .onTapGesture {
+                                    viewModel.observeUser(user)
+                                    showBottomView = false
+                                }
+                        }
+                        .listStyle(.automatic)
+                        .scrollContentBackground(.hidden)
+                    }
                 default:
                     EmptyView()
                 }
             }
             Spacer()
-        }
-        .task {
-            viewModel.checkAuthorization()
         }
     }
 }

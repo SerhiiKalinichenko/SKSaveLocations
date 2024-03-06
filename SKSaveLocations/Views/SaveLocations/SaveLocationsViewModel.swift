@@ -2,7 +2,7 @@
 //  SaveLocationsViewModel.swift
 //  SKSaveLocations
 //
-//  Created by Serhii Kalinichenko on 09.12.2023.
+//  Created by Serhii Kalinichenko on 29.02.2024.
 //
 
 import Combine
@@ -28,9 +28,10 @@ extension LocationData: Identifiable {
 }
 
 final class SaveLocationsViewModel: ObservableObject {
-    let locationsStorageService: any LocationsStorageServiceType
-    @Published var lastLocation: CLLocation?
-    @Published var locations: [LocationData] = []
+    @Published private(set) var isTracking = false
+    @Published private(set) var lastLocation: CLLocation?
+    @Published private(set) var locations: [LocationData] = []
+    private let locationsStorageService: any LocationsStorageServiceType
     private let locationService: any LocationServiceType
     private let userService: any UserServiceType
     private var locationsName = "Name of location"
@@ -51,6 +52,7 @@ final class SaveLocationsViewModel: ObservableObject {
     }
     
     @MainActor func startTracking() {
+        isTracking = true
         let route = Rout(description: "Rout_\(Date())")
         if let locationsName = locationsStorageService.addRoute(route) {
             self.locationsName = locationsName
@@ -62,6 +64,7 @@ final class SaveLocationsViewModel: ObservableObject {
     }
     
     func stopTracking() {
+        isTracking = false
         locationService.stopUpdatingLocation()
         Task {
             await userService.addActiveRout(nil)

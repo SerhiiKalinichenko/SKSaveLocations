@@ -2,7 +2,7 @@
 //  ImagePicker.swift
 //  SKSaveLocations
 //
-//  Created by Serhii Kalinichenko on 02.12.2023.
+//  Created by Serhii Kalinichenko on 29.02.2024.
 //
 
 import PhotosUI

@@ -2,7 +2,7 @@
 //  MapButtonsCollectionView.swift
 //  SKSaveLocations
 //
-//  Created by Serhii Kalinichenko on 17.12.2023.
+//  Created by Serhii Kalinichenko on 29.02.2024.
 //
 
 import SwiftUI
@@ -24,9 +24,15 @@ struct MapButtonsCollectionView<VM>: View where VM: MapViewModelType {
                             item.image
                             Text(item.name)
                         }
+                        .foregroundStyle(tappedButton == item.type ? .mainBlue : .gray)
                         .onTapGesture {
-                            if item.type == .routes {
+                            switch item.type {
+                            case .routes:
                                 viewModel.getRoutesList()
+                            case .observedUsers:
+                                viewModel.getObservedUsersList()
+                            default:
+                                break
                             }
                             tappedButton = item.type
                         }

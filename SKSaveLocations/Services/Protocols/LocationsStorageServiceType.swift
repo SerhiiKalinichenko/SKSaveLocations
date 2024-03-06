@@ -12,4 +12,5 @@ protocol LocationsStorageServiceType: Service {
     func getRoutsList() async throws -> [Rout]?
     func addRoute(_ rout: Rout) -> String?
     func getRoutLocations(_ rout: Rout) async throws -> [LocationData]?
+    func getRoutLocations(for user: User) async throws -> [LocationData]?
 }

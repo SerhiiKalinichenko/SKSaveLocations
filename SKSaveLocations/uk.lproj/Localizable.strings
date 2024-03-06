@@ -2,7 +2,7 @@
   Localizable.strings
   SKSaveLocations
 
-  Created by Serhii Kalinichenko on 02.12.2023.
+  Created by Serhii Kalinichenko on 29.02.2024.
   
 */
 "ok" = "Зрозуміло";
@@ -31,6 +31,8 @@
 "trackPosition" = "Відслідковувати положення";
 "stopTracking" = "Зупинити відстеження";
 "routes" = "Маршрути";
+"observed.users" = "Спостереження";
+"noObserved.users" = "На даний час нема користувачів для відслідковування знаходження";
 
 "error.email.alreadyInUse" = "Така електронна адреса вже використовується.";
 "error.account.disabled" = "Обліковий запис користувача на сервері вимкнено.";

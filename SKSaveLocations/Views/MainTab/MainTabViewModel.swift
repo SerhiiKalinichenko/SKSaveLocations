@@ -2,7 +2,7 @@
 //  MainTabViewModel.swift
 //  SKSaveLocations
 //
-//  Created by Serhii Kalinichenko on 05.12.2023.
+//  Created by Serhii Kalinichenko on 29.02.2024.
 //
 
 import SwiftUI
@@ -14,6 +14,6 @@ final class MainTabViewModel: ObservableObject {
     }
     
     var servicesVM: ServicesViewModel {
-        return ServicesViewModel()
+        return ServicesViewModel(serviceHolder: ServiceHolder.shared)
     }
 }

@@ -2,7 +2,7 @@
 //  SaveLocations.swift
 //  SKSaveLocations
 //
-//  Created by Serhii Kalinichenko on 09.12.2023.
+//  Created by Serhii Kalinichenko on 29.02.2024.
 //
 
 import SwiftUI
@@ -18,9 +18,13 @@ struct SaveLocations: View {
                     RoundedButton(label: "trackPosition", icon: Image(systemName: "location")) {
                         viewModel.startTracking()
                     }
+                    .opacity(viewModel.isTracking ? 0.3 : 1)
+                    .disabled(viewModel.isTracking)
                     RoundedButton(label: "stopTracking", icon: Image(systemName: "location.slash")) {
                         viewModel.stopTracking()
                     }
+                    .opacity(!viewModel.isTracking ? 0.3 : 1)
+                    .disabled(!viewModel.isTracking)
                 }
                 .padding(.horizontal, 16)
                 if let location = viewModel.lastLocation {

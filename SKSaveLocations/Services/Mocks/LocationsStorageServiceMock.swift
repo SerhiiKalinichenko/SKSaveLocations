@@ -22,4 +22,8 @@ final class LocationsStorageServiceMock: LocationsStorageServiceType {
     func getRoutLocations(_ rout: Rout) async throws -> [LocationData]? {
         return nil
     }
+    
+    func getRoutLocations(for user: User) async throws -> [LocationData]? {
+        return nil
+    }
 }

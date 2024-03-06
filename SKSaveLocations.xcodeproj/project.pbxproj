@@ -18,6 +18,8 @@
 		0A3803022B20556300D3FC7D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3803012B20556300D3FC7D /* LocationService.swift */; };
 		0A3803062B20575900D3FC7D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3803052B20575900D3FC7D /* MapView.swift */; };
 		0A3803082B20577900D3FC7D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3803072B20577900D3FC7D /* MapViewModel.swift */; };
+		0A3DEBD72B985DD000894AA4 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DEBD62B985DD000894AA4 /* CachedAsyncImage.swift */; };
+		0A3DEBD92B985E1D00894AA4 /* ObservedUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DEBD82B985E1D00894AA4 /* ObservedUserView.swift */; };
 		0A45B6E12B13825000C82BEB /* SKSaveLocationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */; };
 		0A45B6E52B13825200C82BEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E42B13825200C82BEB /* Images.xcassets */; };
 		0A45B6E82B13825200C82BEB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A45B6E72B13825200C82BEB /* Preview Assets.xcassets */; };
@@ -86,6 +88,7 @@
 		0ABFD67D2B1C8FF000EEBC4A /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 0ABFD67C2B1C8FF000EEBC4A /* FirebaseMLModelDownloader */; };
 		0ABFD6812B1C8FF000EEBC4A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0ABFD6802B1C8FF000EEBC4A /* FirebaseStorage */; };
 		0ABFD6832B1C8FF000EEBC4A /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0ABFD6822B1C8FF000EEBC4A /* FirebaseStorageCombine-Community */; };
+		0ACE6CD22B94878A00B964EB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE6CD12B94878A00B964EB /* ImageLoader.swift */; };
 		0AE476EA2B1B6D9D0091DB03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE476E92B1B6D9D0091DB03 /* LoginView.swift */; };
 		0AE476EC2B1B6FDF0091DB03 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE476EB2B1B6FDF0091DB03 /* InputTextView.swift */; };
 		0AE476EF2B1B7C6C0091DB03 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE476EE2B1B7C6C0091DB03 /* Colors.xcassets */; };
@@ -109,6 +112,8 @@
 		0A3803012B20556300D3FC7D /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		0A3803052B20575900D3FC7D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0A3803072B20577900D3FC7D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		0A3DEBD62B985DD000894AA4 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		0A3DEBD82B985E1D00894AA4 /* ObservedUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedUserView.swift; sourceTree = "<group>"; };
 		0A45B6DD2B13825000C82BEB /* SKSaveLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKSaveLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A45B6E02B13825000C82BEB /* SKSaveLocationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSaveLocationsApp.swift; sourceTree = "<group>"; };
 		0A45B6E42B13825200C82BEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 		0ABFD61A2B1C794C00EEBC4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0ABFD64C2B1C7CD200EEBC4A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		0ABFD6522B1C862200EEBC4A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0ACE6CD12B94878A00B964EB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0AE476E92B1B6D9D0091DB03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0AE476EB2B1B6FDF0091DB03 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		0AE476EE2B1B7C6C0091DB03 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -219,6 +225,7 @@
 				0A3803072B20577900D3FC7D /* MapViewModel.swift */,
 				0A93E7912B2F1A240003FFD5 /* MapViewModelType.swift */,
 				0A17DCD92B2A06DC005E1FB4 /* RoundMapButtonView.swift */,
+				0A3DEBD82B985E1D00894AA4 /* ObservedUserView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -346,6 +353,7 @@
 			children = (
 				0AE476EB2B1B6FDF0091DB03 /* InputTextView.swift */,
 				0AB0FFCF2B1B926900629D8A /* RoundedButton.swift */,
+				0A3DEBD62B985DD000894AA4 /* CachedAsyncImage.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -364,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB0FFD92B1BC45500629D8A /* ImagePicker.swift */,
+				0ACE6CD12B94878A00B964EB /* ImageLoader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -555,6 +564,7 @@
 				0A723BA52B3A0ECB009452B9 /* ServiceHolderType.swift in Sources */,
 				0A17DCDA2B2A06DC005E1FB4 /* RoundMapButtonView.swift in Sources */,
 				0AE476EA2B1B6D9D0091DB03 /* LoginView.swift in Sources */,
+				0A3DEBD92B985E1D00894AA4 /* ObservedUserView.swift in Sources */,
 				0A93E7942B2F1C8A0003FFD5 /* MapButtonData.swift in Sources */,
 				0AF895992B1FC66F008B4D45 /* Сhapter.swift in Sources */,
 				0AF895922B1FB3BB008B4D45 /* MainTabViewModel.swift in Sources */,
@@ -590,6 +600,7 @@
 				0AB0FFDA2B1BC45500629D8A /* ImagePicker.swift in Sources */,
 				0A723BA32B3A0C82009452B9 /* Service.swift in Sources */,
 				0A896D5E2B1E394E00A06FE1 /* String.swift in Sources */,
+				0ACE6CD22B94878A00B964EB /* ImageLoader.swift in Sources */,
 				0AAB2D302B8DB0F90084C0BD /* AlertView.swift in Sources */,
 				0A64E33D2B3816EE00D49261 /* AlertType.swift in Sources */,
 				0A1E13E92B25F7C700163711 /* View.swift in Sources */,
@@ -598,6 +609,7 @@
 				0A1ED0B62B3A2D9E0028DB18 /* LocationsStorageServiceMock.swift in Sources */,
 				0A45B6E12B13825000C82BEB /* SKSaveLocationsApp.swift in Sources */,
 				0ABFD64D2B1C7CD200EEBC4A /* UserService.swift in Sources */,
+				0A3DEBD72B985DD000894AA4 /* CachedAsyncImage.swift in Sources */,
 				0ABFD6532B1C862200EEBC4A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@
 //  ServicesView.swift
 //  SKSaveLocations
 //
-//  Created by Serhii Kalinichenko on 05.12.2023.
+//  Created by Serhii Kalinichenko on 29.02.2024.
 //
 
 import SwiftUI
@@ -34,9 +34,12 @@ struct ServicesView: View {
         .fullScreenCover(isPresented: $goToShareLocation, content: {
             SaveLocations(viewModel: SaveLocationsViewModel(serviceHolder: ServiceHolder.shared))
         })
+        .task {
+            viewModel.checkAuthorization()
+        }
     }
 }
 
 #Preview {
-    ServicesView(viewModel: ServicesViewModel())
+    ServicesView(viewModel: ServicesViewModel(serviceHolder: ServiceHolderMock()))
 }
