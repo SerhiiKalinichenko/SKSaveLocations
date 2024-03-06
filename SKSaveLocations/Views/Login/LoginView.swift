@@ -27,24 +27,26 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                LoginLogoView()
-                    .opacity(0.7)
-                    .padding(.top, 10)
-                VStack {
-                    InputTextView(text: emailBinding, title: "email", placeholder: "emailPlaceholder")
-                        .autocapitalization(.none)
-                    InputTextView(text: passwordBinding, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
+                ScrollView {
+                    LoginLogoView()
+                        .opacity(0.7)
+                        .padding(.top, 10)
+                    VStack {
+                        InputTextView(text: emailBinding, title: "email", placeholder: "emailPlaceholder")
+                            .autocapitalization(.none)
+                        InputTextView(text: passwordBinding, title: "password", placeholder: "passwordPlaceholder", isSecureText: true)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 40)
+                    RoundedButton(label: "logIn") {
+                        viewModel.logIn()
+                    }
+                    .frame(height: 44)
+                    .disabled(!viewModel.dataIsValidated)
+                    .opacity(viewModel.dataIsValidated ? 1 : 0.6)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 20)
                 }
-                .padding(.horizontal)
-                .padding(.top, 40)
-                RoundedButton(label: "logIn") {
-                    viewModel.logIn()
-                }
-                .frame(height: 44)
-                .disabled(!viewModel.dataIsValidated)
-                .opacity(viewModel.dataIsValidated ? 1 : 0.6)
-                .padding(.horizontal, 16)
-                .padding(.top, 20)
                 Spacer()
                 NavigationLink {
                     let regViewModel = RegistrationViewModel(serviceHolder: ServiceHolder.shared)

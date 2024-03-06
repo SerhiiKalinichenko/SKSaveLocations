@@ -10,10 +10,11 @@ import SwiftUI
 
 final class MapViewModel: MapViewModelType {
     @Published var position: MapCameraPosition = .automatic
-    @Published var observedUsers: [User]?
-    @Published var routesList: [Rout]?
-    @Published var routeLocations: [LocationData]?
-    @Published var observedLocation: CLLocationCoordinate2D?
+    @Published private(set) var observedUsers: [User]?
+    @Published private(set) var routesList: [Rout]?
+    @Published private(set) var routeLocations: [LocationData]?
+    @Published private(set) var observedLocation: CLLocationCoordinate2D?
+    private(set) var observedUser: User?
     private(set) var mapButtonData = [MapButtonData]()
     private let locationsStorageService: any LocationsStorageServiceType
     private let userService: any UserServiceType
@@ -50,6 +51,17 @@ final class MapViewModel: MapViewModelType {
     
     func observeUser(_ user: User) {
         stopTimer()
+        if observedUser == nil {
+            observedUser = user
+            Task {
+                let uiImage = await ImageLoader.loadImage(url: user.avatarURL)
+                if let imageData = uiImage?.pngData() {
+                    var user = user
+                    user.imageString = imageData.base64EncodedString()
+                    observedUser = user
+                }
+            }
+        }
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
             guard let self else {
                 return
@@ -65,6 +77,7 @@ final class MapViewModel: MapViewModelType {
     
     private func stopTimer() {
         timer?.invalidate()
+        observedUser = nil
     }
     
     private func setMapButtonsData() {

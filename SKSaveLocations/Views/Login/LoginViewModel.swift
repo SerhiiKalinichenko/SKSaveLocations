@@ -8,6 +8,7 @@
 import Firebase
 import SwiftUI
 
+@MainActor
 final class LoginViewModel: ObservableObject {
     let userService: any UserServiceType
     @Published private(set) var email = ""

@@ -14,7 +14,6 @@ struct MapView: View {
     @State var location: CLLocation?
     @State private var showBottomView = false
     @State private var tappedButton: MapButtonType?
-    private let botomViewHeights = stride(from: 0.1, through: 1, by: 0.45).map { PresentationDetent.fraction($0) }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -26,15 +25,19 @@ struct MapView: View {
                             .mapOverlayLevel(level: .aboveLabels)
                     }
                     if let observedLocation = viewModel.observedLocation {
-                        Annotation("User", coordinate: observedLocation, content: {
-                            ZStack {
-                                Circle()
-                                    .foregroundStyle(.red)
-                                Image(systemName: "figure.wave")
-                                    .padding(7)
+                        let user = viewModel.observedUser
+                        Annotation(user?.name ?? "", coordinate: observedLocation, content: {
+                            if let user {
+                                ObservedUserImageView(user: user, imageHeight: 30)
+                            } else {
+                                ZStack {
+                                    Circle()
+                                        .foregroundStyle(.red)
+                                    Image(systemName: "figure.wave")
+                                        .padding(7)
+                                }
                             }
                         })
-                        .annotationTitles(.hidden)
                     }
                 }
                 .mapStyle(.hybrid(elevation: .realistic))
@@ -63,7 +66,7 @@ struct MapView: View {
                 switch tappedButton {
                 case .routes:
                     List(viewModel.routesList ?? [], id: \.id) { rout in
-                        Text("Rout: \(rout.description ?? "Some rout")")
+                        Text(rout.description ?? "Some rout")
                             .onTapGesture {
                                 viewModel.getLocations(for: rout)
                                 showBottomView = false
